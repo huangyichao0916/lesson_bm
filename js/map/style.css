@@ -8,3 +8,11 @@
     background-color:grey;
 
 }
+.suggestion{
+    position: absolute;
+    top: 0;
+    right: 10vw;
+    width: 10vw;
+    height: 10vh;
+    background-color: green;
+}
