@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#map{
+    width: 80vw;  /*viewport 相对单位，根据视窗的大小调整*/
+    height: 100vh;
+    background-color:grey;
+
+}

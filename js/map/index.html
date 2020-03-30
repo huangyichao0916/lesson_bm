@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=U23ymchQfnhbwsKpO4jheUET5y3p4GPd"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map">
+
+    </div>
+    <script>
+        window.onload = function() {
+    // 405 错误 来着于用户的错误
+    // 500 服务器端错误
+    // 404 Not Found 
+
+    // console.log('ready')
+    var map = new BMap.Map('map'); // 实例化地图
+    map.centerAndZoom("东华理工大学南昌校区", 16) // 中心设置 zoom
+  }
+    </script>
+</body>
+</html>
