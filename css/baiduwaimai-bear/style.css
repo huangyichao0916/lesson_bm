@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 三种方式让div撑满屏幕 */
+/* html,body{
+    width: 100%;
+    height: 100%;
+} */
+.view{
+    width: 100%;
+    height: 100%;
+    /* position: absolute;  相对于父级第一个定位属性的元素进行定位 */
+    position: absolute;   
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;       
+    /* 四个方向贴着视窗 */
+
+    background-color:#ffebeb;
+}
+html{
+    font-size: 37.5px;
+}
+.bear{
+    width: 6.5rem;
+    height: 1.89rem;
+    margin: 0 auto;
+    position: relative;
+}
+.bear-img{
+    background:url(http://s1.map.bdimg.com/zt/y2015/waimaibear/mobile/images/rider1_1b78925.png);
+    width: 2.4em;
+    height: 1.89em;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: run 1s linear forwards ;
+}
+.progress{
+    width: 6.25rem;
+    height: 0.245rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.progress-red{
+    background-color: red;
+    width: 25%;
+    height: 100%;
+    float: right;
+    /* animation: progress 1s linear forwards; */
+}
+@keyframes run{
+    0% {
+        transform: translate3d(0, 0, 0);
+      }
+      4% {
+        transform: translate3d(0, -.125rem, 0);
+      }
+      8% {
+        transform: translate3d(0, 0, 0);
+      }
+      16% {
+        transform: translate3d(-.4rem, -.125rem, 0);
+      }
+      24% {
+        transform: translate3d(-.8rem, 0, 0);
+      }
+      32%{
+        transform:translate3d(-1.2rem,-.125rem,0rem)
+      }
+      40%{transform:translate3d(-1.6rem,0rem,0rem)
+      }
+      48%{transform:translate3d(-2rem,-.125rem,0rem)
+      }
+      56%{transform:translate3d(-2.4rem,0rem,0rem)
+      }
+      64%{transform:translate3d(-2.8rem,-.125rem,0rem)
+      }
+      72%{transform:translate3d(-3.2rem,0rem,0rem)
+      }
+      80%{
+        transform:translate3d(-3.6rem,-.125rem,0rem)
+      }
+      88%{
+        transform:translate3d(-4rem,0rem,0rem)
+      }
+      96%{
+        transform:translate3d(-4.4rem,-.125rem,0rem)
+      }
+      100%{
+        transform:translate3d(-4.8rem,0rem,0rem)
+      }
+}
+@keyframes progress{
+    to{
+        width: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+.body{
+    background: url("./cat/maoshenti.png");
+    width: 117px;
+    height: 201px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+.tail{
+    background: url("./cat/maowei.png");
+    width: 64px;
+    height: 194px;
+    position: absolute;
+    top: -182px;
+    animation: animation 3s ease-in-out infinite alternate;
+    transform-origin: 100% 100%;
+}
+.claw{
+    background: url("./cat/maozhua.png");
+    width: 34px;
+    height: 81px;
+    position: absolute;
+    top: 93%;
+    left: 60%;
+    animation: animation 3s ease-in-out infinite alternate;
+    transform-origin: 50% 0;
+    z-index:-1;
+}
+.eye{
+    background: url("./cat/maoyan1.png");
+    width: 2px;
+    height: 2px;
+    display: block;
+}
+.eyes{
+    position: absolute;
+    bottom: 10%;
+    right: 30%;
+}
+@keyframes animation{
+    100%{
+        transform: rotate(-5deg);
+    }
+}
