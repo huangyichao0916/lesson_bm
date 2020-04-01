@@ -8,7 +8,8 @@
   <!-- sdk -->
   <script type="text/javascript" 
   src="https://api.map.baidu.com/api?v=2.0&ak=47FQtS6XkphGqmZ5nSEj6WTSTwE8SGaT"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/iconfont.css">
 </head>
 <body>
   <!-- html  +   css -->
@@ -25,6 +26,20 @@
           <div class="poi-name"></div>
           <div class="price-wrapper">
             <div class="location"></div>
+            <div class="item-eval-info">
+              <div class="stars-wrapper">
+                
+                <ul>
+                  <li><span class="iconfont">&#xe647;</span></li>
+                  <li><span class="iconfont">&#xe647;</span></li>
+                  <li><span class="iconfont">&#xe647;</span></li>
+                  <li><span class="iconfont">&#xe647;</span></li>
+                  <li><span class="iconfont">&#xe647;</span></li>
+                </ul>
+              </div>
+              <span class="price">1331元</span>
+              <span></span>
+            </div>
           </div>
         </div>
       </div>
@@ -52,9 +67,9 @@
       //  如果> 1000米 返回  4.1km
       // 否则 整数  936m
       if (distance < 1000) {
-        return parseInt(distance); 
+        return parseInt(distance)+"m"; 
       } else {
-        return (distance/1000).toFixed(1);
+        return (distance/1000).toFixed(1)+"km";
       }
     }
 
@@ -69,7 +84,7 @@
       // 925.1111
       map.getDistance(myPoint, kfcPoint)
     ); // Number
-    // console.log(distance);
+    console.log(distance);
     document.querySelector('.poi-name').innerHTML =  '肯德基';
     document.querySelector('.location').innerHTML = distance;
     document.querySelector('.imgbox img').src = 
