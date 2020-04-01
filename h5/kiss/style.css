@@ -11,9 +11,8 @@ body{
     top: 50%;
     left: 50%;
     width: 232px;
-    background-color: aliceblue;
     /* margin-left: -116px;    第一种方式居中 */
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);/*第二种方式居中*/
     font-size: 0;
 }
 .ball{
@@ -101,7 +100,25 @@ body{
     position: absolute;
     left: 20px;
     top: 22px;
-    opacity: 0;
+    /* opacity: 0; */
+    animation: kiss-m 4s ease infinite;
+}
+@keyframes kiss-m{
+    0%{
+        opacity: 0;
+    }
+    55%{
+        opacity: 0;
+    }
+    55.1%{
+        opacity: 1;
+    }
+    66%{
+        opacity: 1;
+    }
+    66.1%{
+        opacity: 0;
+    }
 }
 .kiss{
     width: 13px;
@@ -155,5 +172,47 @@ body{
     }
     100%{
         transform:translate(0);
+    }
+}
+#right-ball{
+    animation: kiss 4s ease infinite;
+
+}
+@keyframes kiss{
+    40%{
+        transform: translate(0);
+    }
+    50%{
+        transform: translate(30px)  rotate(20deg);
+    }
+    60%{
+        transform: translate(-33px)  ;
+    }
+    67%{
+        transform: translate(-33px)  ;
+
+    }
+    77%{
+        transform: translate(0);
+    }
+}
+.mouth-r{
+    animation: mouth-m 4s ease infinite;
+}
+@keyframes mouth-m{
+    0%{
+        opacity: 1;
+    }
+    55%{
+        opacity: 1;
+    }
+    55.1%{
+        opacity: 0;
+    }
+    66%{
+        opacity: 0;
+    }
+    66.1%{
+        opacity: 1;
     }
 }
