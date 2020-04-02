@@ -13,26 +13,27 @@
     color: blue;
 }
 #page-one button{
-    outline: none;
+    outline: none;/*取消按钮的外框线*/
     border: 1px solid transparent;
     padding: 6px 12px;
     background-color: #428bca;
     width: 300px;
     border-radius: 10px;
 }
+
+
+
+
+
 #page-two{
     display: flex;
     flex-wrap: wrap;
 }
 #page-two .block{
-    background-color: teal;
-    width: 50%;
-    height: 20px;
-    /* flex-shrink: 0; */
+    /* width: 50%; */
 }
 #page-two .block div{
     /* calc()是css的一个函数 ,在运算符号的左右必须要加空格，否则不生效*/
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-    /* border: 1px solid transparent; */
 }

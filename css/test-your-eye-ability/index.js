@@ -2,30 +2,28 @@ const pageOne=document.querySelector("#page-one");
 const startBtn=document.querySelector("#page-one button");
 const pageTwo = document.querySelector("#page-two");
 
+// 在点击开始测试按钮之后将第一页删除
 startBtn.addEventListener("click",function(){
     document.body.removeChild(pageOne);
     console.log(step);
     init();
-    
 });
 
+//该参数用来记录游戏的关卡数
 let step=1;
 
 function init(){
     step++;
-    let [normalColor,specialColor]=getColor(step);/*getColor()返回的是一个16进制的数字*/
+    let [normalColor,specialColor]=getColor(step);/*getColor()返回的是两个16进制的数字用来代表颜色*/
     // Math.random()生成[0，1)的随机数
     //Math.floor()向下取整数
-    let pos = Math.floor(Math.random()*step*step);
-    let blockWidth=100/step;
+    let pos = Math.floor(Math.random()*step*step);//随机获得一个位置
+    let blockWidth=100/step;//根据不同的关卡让的盒子的宽的百分比
     let arr = [];
     for (let i = 0; i < step*step; i++) {
         let item=`
-        <div class="block width=${blockWidth}%">
-            <div    
-                onclick=${i===pos?"init":""}
-                style="background-color:#${i===pos?specialColor:normalColor}">
-
+        <div class="block" style="width:${blockWidth}% ;height:100px">
+            <div style="background-color:#${i===pos?specialColor:normalColor}">
             </div>
         </div>
         `;
