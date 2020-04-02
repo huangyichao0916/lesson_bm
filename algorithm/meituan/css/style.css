@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    /* css 继承 */
+    font-size: 0.28rem;
+    line-height: 1.5;
+  }
+  img {
+    max-width: 100%;
+  }
+  #map {
+    width: 100vw;
+    height: 100vh;
+  }
+  .poi-item-wrapper {
+    background-color: #fff;
+    padding: 0.24rem 0 0 0.3rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .poi-item-wrapper .poi-info-wrapper {
+    display: flex;/*弹性布局*/
+  }
+  .poi-item-wrapper .image-wrapper {
+    position: relative;
+    margin-top: 0.05rem;
+    width: 1.6rem;
+    height: 1.61rem;
+  }
+  .poi-item-wrapper .poi-info {
+    margin-left: 0.18rem;
+    flex:1 ;
+  }
+  .poi-item-wrapper .poi-info .price-wrapper {
+    position: relative;
+    font-size: 0.24rem;
+    line-height: 0.33rem;
+    margin-top: 0.06rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 2rem;
+  }
+  .poi-item-wrapper .poi-info .location {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0.33rem;
+    line-height: 0.33rem;
+    font-size: 0.24rem;
+    font-family: PingFangSC-Regular;
+    color: #666666;
+    letter-spacing: 0.2px;
+  }
+  .poi-item-wrapper .poi-info .price-wrapper .item-eval-info{
+    margin-top: 0.06rem;
+    height: 0.3rem;
+  }
+  .poi-item-wrapper .poi-info .price-wrapper .item-eval-info .stars-wrapper{
+    display: inline-block;
+    margin-right: 0.1rem;
+  }
+  .poi-item-wrapper .poi-info .price-wrapper .item-eval-info .stars-wrapper li{
+    display: inline-block;
+  }
+  .price{
+    color: grey;
+    font-size: 0.3rem;
+  }

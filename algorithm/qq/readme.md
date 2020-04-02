@@ -1,0 +1,3 @@
+- js的数据类型：number，string，object，boolean，function，undefined     共6种
+- js的整数跟浮点数没有区分，都是number类型
+- js的数组属于object类型
