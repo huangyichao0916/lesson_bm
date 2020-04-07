@@ -37,3 +37,26 @@
 .tab.show{
     display: block;
 }
+.mine_cart,.mine_title{
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+.fruit{
+    background-color: white;
+}
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.avatar img{
+    width: 100%;
+}
+.tab .weui-cell{
+    background-color: white;
+}
