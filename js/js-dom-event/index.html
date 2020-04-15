@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-dom-event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <ul>
+            <li>1111111</li>
+            <li>222222</li>
+            <li>333333</li>
+            <li>44444</li>
+        </ul>
+    </div>
+    <script>
+        const ul = document.querySelector('ul');
+        ul.addEventListener('click',function(event){
+            // console.log(event);
+            console.log(event.target.innerText);
+        },true)
+    </script>
+</body>
+</html>
