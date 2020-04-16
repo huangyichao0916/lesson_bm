@@ -1,0 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.drag{
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid pink;
+}
