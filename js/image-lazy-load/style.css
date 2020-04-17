@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.lazy-load {
+  width: 265px;
+  height: 265px;
+  margin-bottom: 10px;
+  display: block;
+}
