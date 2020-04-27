@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append Child DOM API</title>
+</head>
+<body>
+    <ul id="student">
+
+    </ul>
+    
+    <script>
+        const students = [
+        {
+            id:1,
+            name:'黄毅超',
+            github:'https://huangyichao0916.github.io/lesson_bm/',
+        },
+        {
+            id:2,
+            name:'刘策',
+            github:'https://github.com/2941187216',
+        },
+        {
+            id:3,
+            name:'刘巧纯',
+            github:'https://github.com/qiaochunliu77',
+        }
+    ]
+    let ul = document.getElementById('student');
+    ul.style.fontSize = '30px';
+    // const li = document.createElement('li');
+    // const l2i = document.createElement('li');
+    // console.log(oli);
+    // ul.appendChild(li);
+    // let textNode = document.createTextNode('asdjjsad');
+    // li.appendChild(textNode);
+    // console.log(li.nodeType);
+    // console.log(textNode.nodeType);
+    // li.innerText='sajd';
+    for (const student of students) {
+        const li = document.createElement('li');
+        li.className = 'item';
+        
+        const text = document.createTextNode(student.name);
+        const a = document.createElement('a');
+        a.setAttribute('herf',student.github);
+        a.setAttribute('target','_blank');
+        a.appendChild(document.createTextNode(`${student.name}的GitHub地址`));
+        // li.appendChild(text);
+        li.appendChild(a);
+        ul.appendChild(li);
+    }
+    const studentList = document.querySelectorAll('.item');
+
+    </script>
+</body>
+</html>
