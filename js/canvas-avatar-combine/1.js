@@ -8,8 +8,8 @@ fileNode.addEventListener('change',function(event){
     // console.log(event)
     let file = event.target.files[0];//获取上传的文件
     console.log(file);
-    let fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+    let fileReader = new FileReader();//new一个文档读取类
+    fileReader.readAsDataURL(file);//以base64的格式读取
     fileReader.onload = function(event2){
         // console.log(event2.target.result);
         console.log(1);
@@ -21,4 +21,8 @@ fileNode.addEventListener('change',function(event){
         }
         
     }
+})
+
+document.querySelector('.btn').addEventListener('click',function(){
+    fileNode.click();
 })

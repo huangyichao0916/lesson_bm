@@ -8,13 +8,18 @@
         #preview,#flag{
             display: none;
         }
+        .btn{
+            outline: none;
+            background-color: green;
+        }
     </style>
 </head>
 <body>
     <!-- 将input标签的type设置为file，就可以变成文件上传的功能 -->
-    <input type="file" name="" id="file">
+    <input type="file" name="" id="file" hidden>
     <img src="" alt="" id="preview">
     <img src="icon.png" alt="" id="flag">
+    <button class="btn">文件上传</button>
     <canvas id="combine" width="290px" height="290px"></canvas>
 
 
