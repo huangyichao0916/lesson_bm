@@ -5,28 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>star</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+    </style>
 </head>
+
 
 <body>
     <!-- 状态  语义化html     -->
     <div class="wrapper">
-        <button class="like-btn">
+        <!-- <button class="like-btn">
             <span class="like-text">点赞</span>
-        </button>
+        </button> -->
     </div>
+
+
+
     <script>
+        //这里注意我将createDOMFromString函数写在了外面
+        let createDOMFromString = function (DOMString) {
+            const oDiv = document.createElement('div');//创建一个div节点
+            oDiv.innerHTML = DOMString;
+            return oDiv;
+        }
+        
+        class LikeButton {
+            constructor() {
+                this.state = { isLiked: false, };
+            }
+            render() {
+                this.el = createDOMFromString(`
+                <button class="like-btn">
+                    <span class="like-text">${this.state.isLiked ? '取消' : '点赞'}</span>
+                </button>
+                `)
+                this.el.addEventListener('click', this.changeLikeText.bind(this) , false);
+                return this.el;
+            }
+            changeLikeText(){
+                // console.log(this);
+                this.state.isLiked = !this.state.isLiked;
+                this.el.querySelector('.like-text').innerHTML = `${this.state.isLiked ? '取消' : '点赞'}`;
+            }
+        }
+
+        const wrapper = document.querySelector('.wrapper');
+        let lB = new LikeButton();
+        wrapper.appendChild(lB.render());
+
         const button = document.querySelector('.like-btn');
         const buttonText = document.querySelector('.like-text');
         let isLiked = false;  // 点 
-        button.addEventListener('click', () => {
-            isLiked = !isLiked;
-            if (isLiked) {
-                buttonText.innerHTML = '取消';
-            } 
-            else {
-                buttonText.innerHTML = '点赞';
-            }
-        }, false)
+        // button.addEventListener('click', () => {
+        //     isLiked = !isLiked;
+        //     if (isLiked) {
+        //         buttonText.innerHTML = '取消';
+        //     }
+        //     else {
+        //         buttonText.innerHTML = '点赞';
+        //     }
+        // }, false)
     </script>
 </body>
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+    </div>
+
+
+
+    <script>
+        let createDOMFromString = function (DOMString) {
+            const oDiv = document.createElement('div');//创建一个div节点
+            oDiv.innerHTML = DOMString;
+            return oDiv;
+        }
+
+        class LikeButton {
+            constructor() {
+                this.state = { isLiked: false };
+            }
+            render() {
+                this.el = createDOMFromString(`
+                    <button class="like-btn">
+                        <span class="like-text">${this.state.isLiked ? '取消' : '点赞'}</span>
+                    </button>
+                `);
+                this.el.addEventListener('click', this.changeLikeText.bind(this), false);
+                return this.el;
+            }
+            changeLikeText() {
+                this.setState({
+                    isLiked : !this.state.isLiked
+                });
+            }
+            setState(state){
+                // console.log(state);
+                const oldEl = this.el;
+                const parent = this.el.parentNode;
+                this.state = state;
+                this.el = this.render();
+                parent.insertBefore(this.el,oldEl);
+                parent.removeChild(oldEl);
+            }
+        }
+
+        const wrapper = document.querySelector('.wrapper');//获取wrapper盒子
+        let lB = new LikeButton();
+        wrapper.appendChild(lB.render());
+    </script>
+</body>
+
+</html>
