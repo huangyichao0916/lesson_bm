@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.progress-bar {
+  margin-top: 100px;
+  background-color: rgba(0,0,0,0.3);
+  width: 100%;
+  height: 4px;
+  position: relative;
+}
+.progress-bar .progress {
+  background-color: #f00;
+  width: 0%;
+  height: 100%;
+}
+.progress-bar .progress-button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #f00;
+  position: absolute;
+  margin-left: -7px;
+  top: -5px;
+}
