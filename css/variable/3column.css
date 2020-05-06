@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header,
+footer {
+  background-color: #808080;
+  flex: 0 0 50px;
+}
+.content {
+  flex-grow: 1;
+  display: flex;
+}
+.content .nav,
+.content .ads {
+  background-color: #00f;
+  width: 100px;
+}
+.content .nav {
+  order: -1;
+}
+.content .main {
+  flex-grow: 1;
+}
