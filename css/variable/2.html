@@ -22,10 +22,16 @@
   }
   /* 当是手机浏览时， 请把box 宽， 高，  padding 大小
   等比例缩放80%, 在变量上做文章 */
-  @media screen and (max-device-width:480px){
+  @media (max-device-width:480px){
     :root {
     --bg-color: red;
     --base-size: 10*0.8;
+    }
+  }
+  @media only screen and (min-width: 1200) {
+    :root{
+      --bg-color: black;
+      --base-size: 10*2;
     }
   }
   </style>
