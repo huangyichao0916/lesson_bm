@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  width: 100px;
+  height: 100px;
+  background-color: #808080;
+  border-radius: 50%;
+}
+ul.stop li:nth-child(1) {
+  background-color: #f00;
+}
+ul.warn li:nth-child(2) {
+  background-color: #ff0;
+}
+ul.pass li:nth-child(3) {
+  background-color: #008000;
+}
