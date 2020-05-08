@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+</head>
+<body>
+    
+
+    <script>
+        function encode(str){
+            return encodeURIComponent(str)
+            .replace('%5B','[')
+            .replace('5%D',']')
+            ;
+        }
+        function buildURL(url,params){
+            let parts = [];
+            Object.keys(params).forEach(function(key){
+                let value = params[key];
+                //判断键值是否为null或者undefined
+                if (value === null || typeof value === 'undefined') {
+                    return;
+                }
+
+                //判断value是否是数组，如果是的话则将key值加'[]'，不是的话就转换成一个数组
+                if (Array.isArray(value)) {
+                    key += '[]';
+                }
+                else{
+                    value = [value];
+                }
+                value.forEach(function(val){
+                    let part = `${encode(key)}=${encode(val)}`;
+                    parts.push(part);
+                })
+            })
+            //判断URL是否有#符号
+            const hashIndex = url.indexOf('#');
+            if (hashIndex !== -1) {
+                url = url.slice(0,hashIndex);
+            }
+            url += '?' + parts.join('&');
+            console.log(url);
+        }
+        buildURL('http://neteasecloudmusicapi.zhaoboy.com/search',{
+            keywords:'海阔天空',
+            type:'all',
+            query:'js',
+            a:null,
+            b:undefined,
+            c:123
+        })
+    </script>
+</body>
+</html>
