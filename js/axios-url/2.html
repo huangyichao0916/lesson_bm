@@ -6,7 +6,6 @@
     <title>2</title>
 </head>
 <body>
-    
 
     <script>
         function encode(str){
@@ -16,9 +15,15 @@
             ;
         }
         function buildURL(url,params){
+            if (!params) {
+                return url;
+            }
             let parts = [];
+
+            //将params对象的每一项的key和value拼接起来
             Object.keys(params).forEach(function(key){
                 let value = params[key];
+                
                 //判断键值是否为null或者undefined
                 if (value === null || typeof value === 'undefined') {
                     return;
@@ -31,17 +36,23 @@
                 else{
                     value = [value];
                 }
+
                 value.forEach(function(val){
                     let part = `${encode(key)}=${encode(val)}`;
                     parts.push(part);
                 })
             })
-            //判断URL是否有#符号
+
+            //判断URL是否有#符号,只让#前面的内容传给后端
             const hashIndex = url.indexOf('#');
             if (hashIndex !== -1) {
                 url = url.slice(0,hashIndex);
             }
-            url += '?' + parts.join('&');
+
+            //如果一开始没有问号，就加上问号，否则就加上&
+            url += (url.indexOf('?')===-1?'?':'&') + parts.join('&');
+
+
             console.log(url);
         }
         buildURL('http://neteasecloudmusicapi.zhaoboy.com/search',{
