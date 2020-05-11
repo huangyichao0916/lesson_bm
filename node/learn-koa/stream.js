@@ -1,6 +1,7 @@
 const fs = require('fs');
 const koa = require('koa');
 const app = new koa();
+const KoaStatic = require('koa-static');
 
 const main = ctx => {
     if (ctx.request.url === '/ch.jpeg') {
@@ -15,5 +16,6 @@ const main = ctx => {
     }
 }
 
-app.use(main);
+// app.use(main);
+app.use(KoaStatic('./'));
 app.listen(8080);
