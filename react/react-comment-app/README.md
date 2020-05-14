@@ -1,0 +1,2 @@
+ - render函数是必须的，负责页面输出
+ - prop和state是react最重要的两个数据
