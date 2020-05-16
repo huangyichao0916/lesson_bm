@@ -11,4 +11,8 @@
 
   - fs.statSync()拿到文件的一些属性
 
-  - 
+  - 判断文件是否修改流程：
+     1. 服务器接到请求时，用一个 res.setHeader('Last-Modified', stat.mtime) 来记录文件的最后修改时间
+     2. 下次再请求时，请求头会带有一个 if-modified-since，这个东西的值就是上次请求时服务器响应头里面的'Last-Modified'的值，通过判断 if-modified-since 和 Last-Modified 的值是否相等，就可以得出来文件是否被修改，以及浏览器是否应该返回304状态码。
+
+    Etag的流程跟这个类似，不过Etag更好一些。
