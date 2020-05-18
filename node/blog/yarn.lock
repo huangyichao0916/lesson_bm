@@ -805,7 +805,7 @@ json-schema@0.2.3:
 
 json-server@^0.16.1:
   version "0.16.1"
-  resolved "https://registry.npm.taobao.org/json-server/download/json-server-0.16.1.tgz?cache=0&sync_timestamp=1582451905280&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjson-server%2Fdownload%2Fjson-server-0.16.1.tgz#1d3cb19087f5cb5040d94a49d99472102b2859d9"
+  resolved "https://registry.npm.taobao.org/json-server/download/json-server-0.16.1.tgz#1d3cb19087f5cb5040d94a49d99472102b2859d9"
   integrity sha1-HTyxkIf1y1BA2UpJ2ZRyECsoWdk=
   dependencies:
     body-parser "^1.19.0"
