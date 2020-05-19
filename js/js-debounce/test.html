@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己实现debounce</title>
+</head>
+<body>
+    <input type="text" id="input">
+
+    
+    <script>
+        const input = document.getElementById('input');
+        // let isInputing = false;
+        let timeout;
+
+        function debounce(fnc,wait){
+            let timeout;
+
+            let resultFunction = function(){
+                if (timeout) {
+                    clearTimeout(timeout);
+                }
+                timeout = setTimeout(() => {
+                    fnc();
+                }, wait);
+            }
+
+            return resultFunction;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-debounce</title>
+</head>
+<body>
+    <input type="text" id="input">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+    <script>
+        const input = document.getElementById('input');
+        // let isInputing = false;
+        let timeout;
+        // input.addEventListener('input',(event) => {
+        //     if (timeout) {
+        //         clearTimeout(timeout);
+        //     }
+        //     timeout = setTimeout(() => {
+        //             console.log(event.target);
+        //     }, 300);
+        // })
+        input.addEventListener('input',_.debounce((event) => {
+            console.log(event.target.value);
+        },600))
+    </script>
+</body>
+</html>
