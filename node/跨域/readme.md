@@ -14,3 +14,7 @@
 - cookie随着http请求一起发送，cookie只在域名下面生效
 
 - 简单请求会直接发出请求，非简单请求会发送一个preflight预检请求，这个预检请求是以OPTIONS的形式发送的
+- xhr,fetch,img,src,link,script不受跨域限制
+
+## JSONP
+- 原理：预先定义一个函数，然后在script标签中的src中放入请求的URL，请求会返回一个函数字符串，这个字符串会被当作js执行。
