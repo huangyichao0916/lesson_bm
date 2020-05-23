@@ -190,7 +190,36 @@ body {
 
 }
 
+.comment .delete{
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  padding: 5px 10px;
 
+  text-align: center;
+  width: 40px;
+
+  border: none;
+
+  border-radius: 3px;
+
+  background-color: red;
+
+  color: #fff;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.comment .author{
+  position: absolute;
+  left: 300px;
+}
+
+.comment .author span{
+  color: brown;
+}
 
 .comment-username {
 

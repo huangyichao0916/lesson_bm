@@ -15,10 +15,12 @@ class CommentList extends Component {
 
 
   render() {
+    let {handleDeleteComment} = this.props;
     return (
       <div>
         {this.props.comments.map((comment, i) =>
           <Comment
+            handleDeleteComment={handleDeleteComment}
             comment={comment}
             key={i}
             index={i}

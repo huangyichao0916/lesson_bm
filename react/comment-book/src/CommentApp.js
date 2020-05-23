@@ -43,7 +43,18 @@ class CommentApp extends Component {
     this._saveComments(comments)
   }
 
-
+  handleDeleteComment = (createdTime111) => {
+    let {comments} = this.state;
+    let i = 0
+    for (; i < comments.length; i++) {
+        if (comments[i].createdTime === createdTime111) {
+            break;
+        }
+    }
+    comments.splice(i,1);
+    this.setState({comments});
+    this._saveComments(comments);
+  }
 
   render() {
     return (
@@ -51,6 +62,7 @@ class CommentApp extends Component {
         <CommentInput onSubmit={this.handleSubmitComment.bind(this)} />
         <CommentList
           comments={this.state.comments}
+          handleDeleteComment={this.handleDeleteComment}
         />
       </div>
     )

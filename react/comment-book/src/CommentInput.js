@@ -15,14 +15,14 @@ class CommentInput extends Component {
       content: ''
     }
   }
-  // 不同的生命周期函数
-  componentWillMount () { // 即将挂载, 
-    this._loadUsername()
+  
+  componentWillMount () { 
+    this._loadUsername() 
   }
 
 
-  componentDidMount () { // mount 挂载
-    this.textarea.focus()  // ?
+  componentDidMount () {
+    this.textarea.focus() 
   }
 
 
