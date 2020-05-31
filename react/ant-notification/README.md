@@ -1,0 +1,2 @@
+- 将弹窗渲染到了body下面，使其与root平级
+- 用了ref来获取到Notification类生成的实例
