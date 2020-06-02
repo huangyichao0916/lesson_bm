@@ -13,15 +13,22 @@ class Main extends React.Component {
   }
   
   componentDidMount() {
-    console.log('-------',this.props.match.params);
+    // console.log('main------',this.props.match.params);
     const params = this.props.match.params || {}
     const searchTerm = params.searchTerm || undefined;
     this.loadBeers(searchTerm); // 
   }
 
   loadBeers(searchTerm = "hops") {
-   
-    fetch(`http://api.react.beer/v2/search?q=${searchTerm}&type=beer`) // api 地址
+    const localStorageBeers = localStorage.getItem(`search-${searchTerm}`);
+    if (localStorageBeers) {
+      const localBeers = JSON.parse(localStorageBeers);
+      this.setState({
+        beers:localBeers,
+        loading:false,
+      })
+    }else{
+      fetch(`http://api.react.beer/v2/search?q=${searchTerm}&type=beer`) // api 地址
       .then(data => data.json())
       .then(data => {
         const beers = data.data || [];
@@ -29,8 +36,13 @@ class Main extends React.Component {
           loading: false,
           beers
         });
-        console.log(beers)
+
+        localStorage.setItem(
+          `search-${searchTerm}`,
+          JSON.stringify(this.state.beers)
+        )
       })
+    }
   }
 
 
