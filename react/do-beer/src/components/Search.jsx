@@ -14,17 +14,11 @@ class Search extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const searchTerm = this.searchRef.current.value; 
-    console.log('search',this.context);
-    // 1. 用户在输入框中的值 ref 
-    // console.log(searchTerm, '-------------');
-    // console.log(this.context, '+++++++++++');
     this.context.router.history.push(`/search/${searchTerm}`);
-    // window.history.push(`/search/${searchTerm}`);
   }
 
   render() {
-    console.log(this.searchRef);
-
+    
     return (
       // 表单  
       <div className="search">
