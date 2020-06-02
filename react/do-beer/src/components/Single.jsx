@@ -41,7 +41,7 @@ class Single extends React.Component {
           <h2>{beer.name}</h2>
           <p>{beer.desription}</p>
         </div>
-        <img className="label" src={beer.labels.large} alt={beer.name}/>
+        <img className="label" src={beer.labels ? beer.large : 'null.jpg'} alt={beer.name}/>
         <div className="style">
           <h3>More Info on {beer.style.name}</h3>
           <p>{beer.style.description}</p>

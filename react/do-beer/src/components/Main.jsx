@@ -43,8 +43,12 @@ class Main extends React.Component {
       .then(data => data.json())
       .then(data => {
         const beers = data.data || [];
-        console.log('data',data);
         console.log('beers',beers);
+        
+        let labels = beers.map(item => item.labels);
+        console.log('labels',labels);
+        //发现了有的beer没有label这个属性，所以有的beer点击之后会报错
+
         this.setState({
           loading: false,
           beers
