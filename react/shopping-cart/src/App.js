@@ -3,18 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-  constructor(){
-    super();
-    this.a = 0;
-  }
-  componentDidMount(){
-    this.a++;
-    console.log(`-----Mount了${this.a}次`);
-  }
-  componentDidUpdate(){
-      this.a++;
-      console.log(`-----Update了${this.a}次`);
-  }
   render(){
     return (
       <div className="App">
