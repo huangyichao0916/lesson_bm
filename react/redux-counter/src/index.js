@@ -8,7 +8,7 @@ import counter from './reducers';
 import Counter from './components/Counter';
 
 const store = createStore(counter);
-console.log(store.getState());
+// console.log(store.getState());
 const render = () => ReactDOM.render(
   <Counter 
   value={store.getState()}
