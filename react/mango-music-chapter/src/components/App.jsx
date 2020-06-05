@@ -27,16 +27,16 @@ class App extends React.Component {
               <NavLink className="nav-link" to="/search"><span>搜索</span></NavLink>
             </div>
           </div>    
-          {/* <Switch>
+          <Switch>
             <Route  path="/recommend" component={ Recommend }/>
             <Route  path="/ranking" component={ Ranking }/>
             <Route  path="/search" component={ Search }/>
-            <Redirect from="/" to="/recommend" />
-          </Switch> */}
-          <Route  path="/recommend" component={ Recommend }/>
+            {/* <Redirect from="/" to="/recommend" /> */}
+          </Switch>
+          {/* <Route  path="/recommend" component={ Recommend }/>
           <Route  path="/" component={ Ranking }/>
           <Route  path="/ranking" component={ Ranking }/>
-          <Route  path="/search" component={ Search }/>
+          <Route  path="/search" component={ Search }/> */}
         </div>
       </Router>
     )
