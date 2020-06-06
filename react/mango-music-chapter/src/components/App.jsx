@@ -31,12 +31,8 @@ class App extends React.Component {
             <Route  path="/recommend" component={ Recommend }/>
             <Route  path="/ranking" component={ Ranking }/>
             <Route  path="/search" component={ Search }/>
-            {/* <Redirect from="/" to="/recommend" /> */}
+            <Redirect from="/" to="/recommend" />
           </Switch>
-          {/* <Route  path="/recommend" component={ Recommend }/>
-          <Route  path="/" component={ Ranking }/>
-          <Route  path="/ranking" component={ Ranking }/>
-          <Route  path="/search" component={ Search }/> */}
         </div>
       </Router>
     )

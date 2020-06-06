@@ -2,12 +2,16 @@ import React from 'react';
 import './recommend.styl'; // webpack
 import Swiper from 'swiper';
 import "swiper/css/swiper.css";
+import Loading from '../../common/loading/Loading';
+import {getNewAlbum} from '../../api/recommend';
 
 
 class Recommend extends React.Component {
   constructor() {
     super();
     this.state = {
+      newAlbums: [] ,
+      loading:true,
       sliderList: [
       {
         id: 1,
@@ -23,7 +27,7 @@ class Recommend extends React.Component {
         id: 3,
         picUrl: 'https://inews.gtimg.com/newsapp_ls/0/11884276052_640330/0',
         linkUrl: 'https://https://xw.qq.com/m/sports'
-      }] 
+      }],
     }
   }
   componentDidMount(){
@@ -36,7 +40,16 @@ class Recommend extends React.Component {
         el: '.swiper-pagination',
         type: 'bullets',
       }
+    });
+    getNewAlbum()
+    .then(res => {
+      console.log('获取最新专辑');
     })
+    setTimeout(() => {
+      this.setState({
+        loading:false,
+      })
+    }, 10000);
   }
   render() {
     return (
@@ -57,6 +70,7 @@ class Recommend extends React.Component {
           </div>
           <div className="swiper-pagination"></div>
         </div>
+        <Loading show={this.state.loading} title="正在加载..."/>
       </div>
     )
   }
