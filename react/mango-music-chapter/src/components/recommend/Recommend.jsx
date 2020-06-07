@@ -4,7 +4,7 @@ import Swiper from 'swiper';
 import "swiper/css/swiper.css";
 import Loading from '../../common/loading/Loading';
 import {getNewAlbum} from '../../api/recommend';
-
+import LazyLoad from 'react-lazyload';
 
 class Recommend extends React.Component {
   constructor() {
@@ -43,7 +43,10 @@ class Recommend extends React.Component {
     });
     getNewAlbum()
     .then(res => {
-      console.log('获取最新专辑');
+      this.setState({
+        loading:false,
+        newAlbums:res,
+      })
     })
     setTimeout(() => {
       this.setState({
@@ -52,6 +55,25 @@ class Recommend extends React.Component {
     }, 10000);
   }
   render() {
+    let albums = this.state.newAlbums.map(item => (
+      <div className="album-wrapper" key={item.id}>
+        <div className="left">
+          <img src={item.img} alt={item.name} width="100%" height="100%"/>
+        </div>
+        <div className="right">
+          <div className="album-name">
+            {item.name}
+          </div>
+          <div className="singer-name">
+            {item.singer}
+          </div>
+          <div className="public-time">
+            {item.publicTime}
+          </div>
+        </div>
+      </div>
+    ))
+
     return (
       <div className="music-recommend">
         <div className="slider-container">
@@ -61,7 +83,9 @@ class Recommend extends React.Component {
                 return (
                   <div className="swiper-slide" key={slider.id}>
                     <a href={slider.linkUrl} className="slider-nav">
-                      <img src={slider.picUrl} alt="" width="100%" height="100%"/>
+                      <LazyLoad height={60}>
+                        <img src={slider.picUrl} alt="" width="100%" height="100%"/>
+                      </LazyLoad>
                     </a>
                   </div>
                 );
@@ -69,6 +93,12 @@ class Recommend extends React.Component {
             }
           </div>
           <div className="swiper-pagination"></div>
+        </div>
+        <div className="album-container">
+          <h1 className="title">最新专辑</h1>
+          <div className="album-list">
+            {albums}
+          </div>
         </div>
         <Loading show={this.state.loading} title="正在加载..."/>
       </div>
