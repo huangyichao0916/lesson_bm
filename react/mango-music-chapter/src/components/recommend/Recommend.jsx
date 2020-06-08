@@ -58,7 +58,9 @@ class Recommend extends React.Component {
     let albums = this.state.newAlbums.map(item => (
       <div className="album-wrapper" key={item.id}>
         <div className="left">
-          <img src={item.img} alt={item.name} width="100%" height="100%"/>
+          <LazyLoad height={60}>
+            <img src={item.img} alt={item.name} width="100%" height="100%"/>
+          </LazyLoad>
         </div>
         <div className="right">
           <div className="album-name">
@@ -83,9 +85,7 @@ class Recommend extends React.Component {
                 return (
                   <div className="swiper-slide" key={slider.id}>
                     <a href={slider.linkUrl} className="slider-nav">
-                      <LazyLoad height={60}>
-                        <img src={slider.picUrl} alt="" width="100%" height="100%"/>
-                      </LazyLoad>
+                      <img src={slider.picUrl} alt="" width="100%" height="100%"/>
                     </a>
                   </div>
                 );
