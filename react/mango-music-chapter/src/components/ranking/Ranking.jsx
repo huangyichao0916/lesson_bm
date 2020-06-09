@@ -19,9 +19,6 @@ class Ranking extends React.Component {
       rankingList: []
     }
   }
-  componentWillMount(){
-    // console.log('will');
-  }
   componentDidMount() {
     // console.log('did');
     getRankingList()
