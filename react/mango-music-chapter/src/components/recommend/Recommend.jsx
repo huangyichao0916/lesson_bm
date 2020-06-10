@@ -116,6 +116,7 @@ class Recommend extends React.Component {
             </div>
             <div className="swiper-pagination"></div>
           </div>
+        
         <Scroll
           refresh={this.state.refreshScroll}
           onScroll={(e) => {
