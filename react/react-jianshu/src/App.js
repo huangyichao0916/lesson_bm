@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import { fromJS } from 'immutable';
+import React  from 'react';
 import ImmutableComponent from './components/common';
 import Header from './components/Header'
 import './App.css';
+import {BrowserRouter,Route} from 'react-router-dom';
+import Home from './pages/home';
+import Detail from './pages/detail';
+import store from './store';
+import {Provider} from 'react-redux'
 
 
 class App extends ImmutableComponent{
-  state = {
-    title: fromJS('123'),
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState(
-        {title:fromJS('123'),}
-      )
-    }, 1500)
-  }
   render() {
-    console.log('app render');
     return (
-      <div>
-        123456
-        <Header title={this.state.title}/>
-      </div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Route exact path="/" component={Home}/>
+          <Route path="/detail" component={Detail} />
+        </BrowserRouter>
+      </Provider>
     )
   }
 }
