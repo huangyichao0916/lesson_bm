@@ -1,20 +1,33 @@
 import React from 'react';
 import './recommend.styl'; // webpack
+import { Route } from 'react-router-dom';  // 子路由
 import Swiper from 'swiper';
 import "swiper/css/swiper.min.css";
+import Album from '@/components/album/Album';
 import Loading from '../../common/loading/Loading';
 import Scroll from '@/common/scroll/Scroll';
-import * as AlbumModel from '@/model/album';  
+import * as AlbumModel from '@/model/album';  // 一次性把album.js 所有的模块都引入
+// 应用中很多图片
+// import Lazyload from 'react-lazyload'; // 图片延迟加载
+// 1. 路由   
+// 2. redux
+// 3. 切页面+ js 
+// 4. 生命周期 + api 
+// 5. 公共组件
 
+// 所有的数据请求都放到api目录下
 import { getNewAlbum }  from '../../api/recommend';
 import LazyLoad, { forceCheck } from 'react-lazyload';
 
-import Album from '@/components/album/Album';
-import {Route} from 'react-router-dom'
-
+// 1. 幻灯片， swiper
+// 2. 加入 swiper功能
+// 数据   { src, link}
 class Recommend extends React.Component {
   constructor() {
     super()
+    // 这个组件 state , 属于这个组件， 不属于其他组件， 
+    // 1. 用假数据 把页面先做出
+    // 2. 未来再改成接口
     this.state = {
       refreshScroll: false,
       newAlbums: [], /* 数据驱动的界面 */
@@ -58,6 +71,10 @@ class Recommend extends React.Component {
     // fetch  低级的
     getNewAlbum() /**promise */
       .then(res => {
+        // console.log(res)
+        // 都端开发， mysql  define 表结构， 
+        // model  前端  定义结构
+        // 不回家model, 多加了一些业务代码在component   model 
         let albumList = res.albumlib.data.list;
 
         // model 
@@ -71,22 +88,23 @@ class Recommend extends React.Component {
           })
         })
       })
-  }
-  toAlbumDetail(url){
-    console.log(url);
-    this.props.history.push({
-      pathname:url,
-    })
+    // setTimeout(() => {
+    //   this.setState({
+    //     loading: false
+    //   })
+    // }, 3000)
   }
   render() {
-    let {match} = this.props;
+    // 切页面
+    // console.log(this.state.newAlbums);
+    let { match } = this.props;
     let albums = this.state.newAlbums.map(item => {
       let album = AlbumModel.createAlbumByList(item);
       // console.log(album);
       return (
       <div className="album-wrapper" 
-        key={album.id}
-        onClick={() => this.toAlbumDetail(`${match.url}/${album.mId}`)}
+      key={album.id}
+      onClick={this.toAlbumDetail.bind(this, `${match.url + '/' + album.mId}`)}
       >
         <div className="left">
           <LazyLoad height={60}>
@@ -109,6 +127,7 @@ class Recommend extends React.Component {
     })
     return (
       <div className="music-recommend">
+        <Route path={`${match.url + '/:id'}`} component={Album} />
        
           <div className="slider-container">
             <div className="swiper-wrapper">
@@ -128,8 +147,8 @@ class Recommend extends React.Component {
           </div>
         <Scroll
           refresh={this.state.refreshScroll}
-          onScroll={(event) => {
-            // console.log(e);
+          onScroll={(e) => {
+            console.log(e);
             forceCheck();
           }}>
           <div className="album-container">
@@ -140,9 +159,16 @@ class Recommend extends React.Component {
           </div>
         </Scroll>
         <Loading show={this.state.loading} title="正在加载..."/>
-        <Route path={`${match.url}/:id'`} component={Album} />
+        
       </div>
     )
+  }
+
+  toAlbumDetail(url) {
+    // console.log(url);
+    this.props.history.push({
+      pathname: url
+    })
   }
 }
 
