@@ -159,7 +159,6 @@ class Recommend extends React.Component {
           </div>
         </Scroll>
         <Loading show={this.state.loading} title="正在加载..."/>
-        
       </div>
     )
   }
