@@ -11,19 +11,18 @@ class ImmutableComponent extends Component {
     || Object.keys(thisState).length !== Object.keys(nextState).length) {
       return true;
     }
-    for (const propKey of Object.keys(nextProps)) {
-        if (!is(thisProps[propKey],nextProps[propKey])) {
-            return true;
-        }
+    for (let propKey of Object.keys(nextProps)) {
+      if (!is(thisProps[propKey], nextProps[propKey])) {
+        return true;
+      }
     }
-    for (const stateKey of Object.keys(nextState)) {
-        if (!is(thisState[stateKey],nextState[stateKey])) {
-            return true;
-        }
+    for (let stateKey of Object.keys(nextState)) {
+      if (!is(thisState[stateKey], nextState[stateKey])) {
+        return true;
+      }
     }
     return false;
   }
 }
-
 
 export default ImmutableComponent;
