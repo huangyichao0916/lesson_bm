@@ -1,7 +1,5 @@
-// import { combineReducers } from 'redux-immutable';
-import { createStore, 
-  combineReducers,
-   applyMiddleware } from 'redux'
+import { combineReducers } from 'redux-immutable';
+import { createStore,applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import HomeReducer from './reducers/home/index';
 

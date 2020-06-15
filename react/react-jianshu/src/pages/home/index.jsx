@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { getHomeList } from '../../store/actions/home';
 class Home extends Component {
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
+    this.props.fetchHomeList();
   }
   render() {
     return ( <div>
       home
-      length: { this.props.homeList.length }
+      length: { this.props.homeList.size }
     </div> );
   }
 }
@@ -17,7 +18,7 @@ class Home extends Component {
 // 过滤完结果（return）都会由 connect 传给你组件的 props
 const mapStateToProps = (state) => {
   return {
-    homeList: state.home.homeList
+    homeList: state.getIn(['home','homeList']),
   }
 }
 // 用户 操作 UI 引起页面变化

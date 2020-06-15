@@ -1,4 +1,5 @@
 import { GET_HOME_LIST } from '../constants'
+import { fromJS } from 'immutable'
 // 一个 action 应该是一个对象
 // {
 //   type: 'GET_HOME_LIST',
@@ -11,7 +12,7 @@ import { GET_HOME_LIST } from '../constants'
 // }
 export const getHomeList = {
   type: GET_HOME_LIST,
-  homeList: [0,1,2,3]
+  homeList: fromJS([0,1,2,3])
 }
 // 
 // dispatch({
