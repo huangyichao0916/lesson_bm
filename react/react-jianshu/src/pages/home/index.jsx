@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getHomeList } from '../../store/actions/home';
+import axios from 'axios';
 class Home extends Component {
   componentDidMount() {
     // console.log(this.props);
@@ -27,6 +28,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchHomeList() {
+      axios.get('http://localhost:3000/home/home.json');
       dispatch(getHomeList)
     }
   }
