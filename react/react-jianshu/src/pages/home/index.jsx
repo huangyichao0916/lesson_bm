@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { getHomeList } from '../../store/actions/home';
 class Home extends Component {
   componentDidMount() {
-    this.props.fetchHomeList();
+    console.log(this.props);
   }
-  state = {  }
   render() {
     return ( <div>
       home

@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import { GET_HOME_LIST } from '../../constants';
 
 const defaultState = {
-  homeList: []
+  homeList: ['hyc']
 }
 // reducer: 原生 js 对象 改成 
 // state 已经变成 immutable 结构的
