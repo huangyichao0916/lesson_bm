@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './util/request.js';
 import {Provider} from 'mobx-react';
@@ -13,7 +12,7 @@ const store = {
 function App() {
   return (
     <Provider {...store}>
-
+      <Home />
     </Provider>
   );
 }
