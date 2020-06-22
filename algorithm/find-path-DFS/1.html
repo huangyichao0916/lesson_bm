@@ -1,0 +1,125 @@
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #container {
+      width: 700px;
+    }
+    .cell {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background-color: green;
+      border-right: 1px solid white;
+      border-bottom: 1px solid white;
+      vertical-align: middle;
+    }
+    #successful{
+        position: absolute;
+        left: 800px;
+        width: 700px;
+        height: 700px;
+        font-size: 300px;
+        color: red;
+        text-align: center;
+        line-height: 700px;
+        opacity: 0;
+    }
+    #successful.active{
+        left: 0;
+        opacity: 1;
+    }
+  </style>
+  <div id="successful">成功</div>
+  <div id="container"></div>
+  <button id="clear">clear</button>
+  <button id="start_finding">start finding</button>
+  <script>
+    const container = document.getElementById('container')
+    let arr = new Array(10000).fill(0);
+    arr.forEach((item , index) => {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      container.appendChild(cell);
+      //给每个小方块加一个鼠标移过事件
+      cell.addEventListener('mousemove',(obj , i) => {
+          if (mouse) {
+              cell.style.backgroundColor = 'black';
+              arr[index] = 2;
+          }
+      })
+    })
+
+    let mouse = false;
+    document.addEventListener('mousedown',() => {
+        mouse = true;
+
+    })
+    document.addEventListener('mouseup',() => {
+        mouse = false;
+    })
+    //禁止鼠标右键事件
+    document.addEventListener('contextmenu',e => e.preventDefault())
+
+    function findPath(map , start , end){
+        let queue = [start];
+        function insert(x , y){
+            if (map[y * 100 + x] !== 0) return;
+            if (x < 0 || x >= 100 || y < 0 || y >= 100) return;
+            container.children[y * 100 + x].style.backgroundColor = 'pink';
+            map[y * 100 + x] = 2;
+            queue.push([x , y]);
+        }
+        // let isContinue = true;
+        // while (queue.length) {
+        //     if (isContinue) {
+        //         let [x , y] = queue.shift();
+        //         if (x === end[0] && y === end[1]) {
+        //             document.getElementById('successful').classList.add('active');
+        //             return true;
+        //         }
+        //         insert(x + 1, y);
+        //         insert(x - 1, y);
+        //         insert(x, y + 1);
+        //         insert(x, y - 1);
+
+        //         isContinue = false;
+        //         setTimeout(() => {
+        //             isContinue = true;
+        //         }, 100);
+        //     }
+        // }
+        while (queue.length) {
+            let [x , y] = queue.shift();
+            if (x === end[0] && y === end[1]) {
+                document.getElementById('successful').classList.add('active');
+                return true;
+            }
+            insert(x + 1, y);
+            insert(x - 1, y);
+            insert(x, y + 1);
+            insert(x, y - 1);
+
+            isContinue = false;
+            setTimeout(() => {
+                isContinue = true;
+            }, 100);
+        }
+        return false;
+    }
+
+    //设置清楚和开始寻路按钮
+    const clearButton = document.getElementById('clear');
+    const startButton = document.getElementById('start_finding');
+    clearButton.addEventListener('click',() => {
+        document.getElementById('successful').classList.remove('active');
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = 0;
+            container.children[i].style.backgroundColor = 'green';
+        }
+    })
+    startButton.addEventListener('click',() => {
+        findPath(arr , [0 , 0] ,[99 , 99]);
+    })
+  </script>
