@@ -1,20 +1,34 @@
 import React from 'react';
-import './App.css';
+import { Provider } from 'mobx-react';
+import { Layout, Row, Col } from 'antd';
+import articleStore from './store/articleStore';
+import Home from './pages/home'
+import logo from './logo.svg';
 import './util/request.js';
-import {Provider} from 'mobx-react';
-import articleStore from './store/articleStore';//需要注意的是在这里引入的整个类
-import Home from './pages/home';
-
+import './App.css';
+// 每一个模块对应 store
+const { Header, Content, Footer } = Layout;
 const store = {
-  articleStore,
+  articleStore
 }
-
 function App() {
   return (
-    <Provider {...store}>
-      <Home />
+    <Provider {...store} >
+      <Layout>
+        <Header>
+        </Header>
+        <Content className="site-layout">
+          <Row>
+            <Col offset={3} span={18}>
+              <Home />
+            </Col>
+          </Row>
+        </Content>
+      </Layout>
     </Provider>
   );
 }
 
+
 export default App;
+

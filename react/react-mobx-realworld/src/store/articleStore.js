@@ -1,36 +1,47 @@
-import {observable,action} from 'mobx';
+import { observable, action } from 'mobx';
 import axios from 'axios';
-
 const LIMIT = 10;
 
+class ArticleStore {
+  // observable state 用 observable 修饰过的变量 变量被修改了 页面就会就会重新渲染
+  // es @ 装饰器
+  LIMIT = LIMIT
+  // react state 响应式 VM
+  @observable articles = {
+    all: []
+  }
+  @observable total = 0;
+  // 繁杂的逻辑 尽量 写到 store
 
-class ArticleStore{
-    // 用observable修饰过的变量被修改了之后，页面就会重新渲染
-    //@ 装饰器 ，es新语法
-    //被observable装饰之后，变量就变成响应式了
-    LIMIT = LIMIT;
-    @observable 
-    articles = {
-        all:[],
-        cars:[],
-    };
-    @observable 
-    total = 0;
+  @observable tags = [];
 
-    @action
-    getArticle = (tag , offset=0) => {
-        axios.get('/articles',{
-            params:{
-                tag:tag === 'all' ? null : tag,
-                offset,
-                limit:LIMIT
-            }
-        })
-        .then(res => {
-            this.articles[tag] = res.articles;
-            this.total = res.articleCount;
-        })
-    }
+
+  @action
+  getArticle(tag, offset = 0) {
+    axios.get('/articles', {
+      params: {
+        tag: tag === 'all' ? null : tag,
+        offset,
+        limit: LIMIT
+      }
+    })
+    .then(res => {
+      // 修改 store
+      this.articles[tag] = res.articles
+      this.total = res.articlesCount
+    })
+  }
+
+  handleTabChange = (key) => {
+    this.getArticle(key);
+  }
+
+  @action
+  getTags(){
+    axios.get('/tags').then(res => {
+      this.tags = res.tags;
+    })
+  }
 }
 
-export default new ArticleStore;
+export default new ArticleStore();
