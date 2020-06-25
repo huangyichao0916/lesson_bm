@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    function getQueryString() {
+        var url = location.search; // node url 
+        console.log(url);
+        var obj = new Object();
+        if (url.indexOf('?' != -1)) {
+        var str = url.substr(1);
+        console.log(str);
+        }
+
+
+        var strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+        obj[strs[i].split("=")[0]] = strs[i].split("=")[1];
+        }
+    }
+
+
+    console.log(getQueryString());
+  </script>
+</body>
+</html>
