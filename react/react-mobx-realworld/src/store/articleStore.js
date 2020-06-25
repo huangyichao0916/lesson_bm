@@ -8,17 +8,20 @@ class ArticleStore {
   // es @ 装饰器
   LIMIT = LIMIT
 
+
   // react state 响应式 VM
   @observable articles = {
     all: [],
     tag1: [],
-    tag2: []
+    tag2: [],
   }
   @observable total = 0;
   // 繁杂的逻辑 尽量 写到 store
   // tags
   @observable tags = []   // 不需要在写 reducer
-  @observable isLoading = false;
+  @observable isLoading = true;
+  @observable activityKey = 'all'
+
 
   @action
   getArticle(tag, offset = 0) {
@@ -33,12 +36,15 @@ class ArticleStore {
     .then(res => {
       this.isLoading = false;
       // 修改 store
+      // this.articles = {}   // X
+      // 仅仅修改某个属性
       this.articles[tag] = res.articles;
       this.total = res.articlesCount;
     })
   }
   handleTabChange = (key) => {
     // console.log(key);
+    this.activityKey = key;
     this.getArticle(key)
   }
   // {}  action 想支持函数 中间件
@@ -49,7 +55,14 @@ class ArticleStore {
       this.tags = res.tags
     })
   }
+  handleAddTab = (tab) => {
+    this.activityKey = tab;
+    this.articles[tab] = [];
+    this.getArticle(tab)
+  }
+
 
 }
+
 
 export default new ArticleStore();
