@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  #app {
+    font-family: Avenir,Helvetica,Arial,sans-serif;
+    /* 抗锯齿 使得字体更加平滑 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    top: 50%;
+  }
+  #app, .win {
+    position: absolute;
+    width: 750px;
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    margin-left: -375px;
+  }
