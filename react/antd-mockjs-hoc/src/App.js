@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Table} from 'antd';
-import 'antd/dist/antd.css';//引入antd的css样式
+// import 'antd/dist/antd.css';//引入antd的css样式
 
 const dataSource = [
   {
