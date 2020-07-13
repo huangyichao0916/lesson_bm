@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import UseEffect from './UseEffect';
+import Test from './test';
 
 function App() {
   return (
     <div className="App">
       <UseEffect />
+      <Test />
     </div>
   );
 }
