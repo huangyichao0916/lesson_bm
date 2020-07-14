@@ -5,7 +5,7 @@ import Test from './test';
 function App() {
   return (
     <div className="App">
-      <UseEffect />
+      <UseEffect title="asd"/>
       <Test />
     </div>
   );

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { useEffect } from 'react';
 
-function Demo() {
+function Demo(props) {
+    console.log('1111',props);
     const [inputVal,setVal] = useState('');
     const [list,setList] = useState('');
     const handleChange = (event) => {
@@ -18,7 +19,10 @@ function Demo() {
             // setList(res.result.songs);
             console.log(res.result.songs);
         })
-    },[])
+        return function(){
+            console.log('123')
+        }
+    },[inputVal,list])
     return (
         <div>
             <input type="text" value={inputVal} onChange={handleChange}/>
