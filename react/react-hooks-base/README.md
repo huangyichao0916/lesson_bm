@@ -14,3 +14,7 @@
  3. useMemo         将一些不变的东西放到缓存里面，这样每次重新执行函数的时候就不用重新定义了
                     useMemo只能缓存值
  4. useCallback     可以缓存函数
+
+## useContext
+ - context上下文对象有性能缺陷，它会在状态改变后将所有组件重新渲染
+ - useContext
