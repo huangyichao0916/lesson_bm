@@ -22,7 +22,7 @@ function Demo(props) {
         return function(){
             console.log('123')
         }
-    },[inputVal,list])
+    },[inputVal])
     return (
         <div>
             <input type="text" value={inputVal} onChange={handleChange}/>
