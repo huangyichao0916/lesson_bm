@@ -14,3 +14,11 @@ export function setTO (to){
         payload : to,
     }
 }
+
+export function exchangeFromTo(){
+    return (dispatch,getState) => {
+        const {from , to} = getState();
+        dispatch(setFrom(to));
+        dispatch(setTO(from));
+    }
+}
