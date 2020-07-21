@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://yanxuan.nosdn.127.net/e1d32c538a9fcf420411592746098ad2.jpg?type=webp&amp;imageView&amp;quality=75&amp;thumbnail=750x0" alt="">
+        <img src="https://yanxuan.nosdn.127.net/7e01b30c2c440e118cf09e14c7a69266.jpg?type=webp&imageView&quality=75&thumbnail=750x0" alt="">
+        <img src="https://yanxuan.nosdn.127.net/94408b4d014ce6774e8f768bdf9b6f60.jpg?type=webp&amp;imageView&amp;quality=75&amp;thumbnail=750x0" alt="">
+        <img src="https://yanxuan.nosdn.127.net/e14d684c9dc43de2af5215c3d49b6870.jpg?type=webp&amp;imageView&amp;quality=75&amp;thumbnail=750x0" alt="">
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        let children = container.querySelectorAll('img');
+
+        let position = 0;
+        let nextPic = () => {
+            let nextPosition = (position + 1) % children.length;
+            let current = children[position];
+            let next = children[nextPosition];
+            current.style.transform = `translateX(${-100 * position})%`;
+            next.style.transform = `translateX(${100 - 100 * position})%`
+        }
+    </script>
+</body>
+</html>
