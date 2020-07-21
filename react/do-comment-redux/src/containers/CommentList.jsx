@@ -21,6 +21,16 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(
-    mapStateToProps
-)(CommentListContainer);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        myOnclick:() => {
+            dispatch({
+                type:'plus',
+                payload:10,
+            })
+        }
+        
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(CommentListContainer);
