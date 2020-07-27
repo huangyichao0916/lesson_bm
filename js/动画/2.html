@@ -1,0 +1,42 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #el{
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        /* animation: move 5s linear; */
+    }
+    /* @keyframes move {
+        to{
+            transform: translate3d(400px,400px,0);
+        }
+    } */
+</style>
+<div id="el"></div>
+<button id="pause" onclick="pause();">pause</button>
+<script>
+    const el = document.getElementById('el');
+    let end = 400,duration = 5000,start = 0;
+    let startTime = Date.now();
+    function tick() {
+        let hasPassed = Date.now() - startTime;
+        let progress = hasPassed/duration;
+        if (progress >= 1) {
+            el.style.transform = `translate3d(${end}px,0,0)`
+            return;
+        }
+        let x = progress * (end - start);
+        el.style.transform = `translate3d(${x}px,0,0)`
+        rafId = requestAnimationFrame(tick);
+    }
+    var rafId = null;
+
+    rafId = requestAnimationFrame(tick);
+    function pause() {
+        cancelAnimationFrame(rafId);
+    }
+ 
+</script>

@@ -1,0 +1,30 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #el{
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        animation: move 5s linear;
+    }
+    @keyframes move {
+        to{
+            transform: translate3d(400px,400px,0);
+        }
+    }
+</style>
+<div id="el"></div>
+<button id="pause">pause</button>
+<script>
+    const el = document.getElementById('el');
+    const pause = document.getElementById('pause');
+    pause.addEventListener('click',() => {
+        const style = window.getComputedStyle(el).transform;
+        console.log(style);
+        const {x,y} = el.getBoundingClientRect();
+        el.style.animation = 'none';
+        el.style.transform = `translate3d(${x}px,${y}px,0)`;
+    })
+</script>
