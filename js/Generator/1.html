@@ -1,0 +1,11 @@
+<script>
+    function autoRun(obj) {
+        let {done, value} = obj.next();
+        if (done) {
+            return;
+        }
+        value.then(() => {
+            autoRun(obj);
+        })
+    }
+</script>
