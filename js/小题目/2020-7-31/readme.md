@@ -50,6 +50,6 @@ const result = serialize(chapterTree);
 console.log(result);
   // ["总章节", "章节一", "第一节", "第一小节", "第二小节", "第二节", "章节二", "第三节", "第四节"]
 
-
+//进阶：用该数组生成一个 react 结构树
 
 ```
