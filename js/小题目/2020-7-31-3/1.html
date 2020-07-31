@@ -1,0 +1,14 @@
+<script>
+    function ajax(url,method) {
+        return new Promise((resolve,reject) => {
+            let xml = new XMLHttpRequest();
+            xml.open(method,url,true);
+            xml.send();
+            xml.onreadystatechange = function(){
+                if (xml.readyState === 4 && xml.status === 200) {
+                    resolve(JSON.parse(xml.response));
+                }
+            }
+        })
+    }
+</script>
