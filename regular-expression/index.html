@@ -1,8 +1,12 @@
 <script>
-    let hd = '123-asd $$123-asd';
-    let reg = /u/;
-    // let reg2 = new RegExp('z','g');
-    let reg2 = /^\d+$/
-    console.log(hd.match(/ /));
-    console.log(reg2.test(hd));
+    let hd = `
+    123-asd$
+    $123-asd
+    asddasj
+    `;
+    let reg = /[0-9]+/g;
+    // let reg2 = /^\d+$/
+    // console.log(hd.match(reg));
+    console.log(hd.replace(reg,'卢本伟'));
+    // console.log(reg2.test(hd));
 </script>
