@@ -1,12 +1,16 @@
 <script>
-    let hd = `
+    let hd = `1
     123-asd$
-    $123-asd
+    $123-a黄毅超d
     asddasj
     `;
-    let reg = /[0-9]+/g;
+    let reg = /1/;
     // let reg2 = /^\d+$/
-    // console.log(hd.match(reg));
-    console.log(hd.replace(reg,'卢本伟'));
-    // console.log(reg2.test(hd));
+    // console.log(hd.exec(reg));
+    let reg2 = /d/y;
+    let str2 = 'ddddhhhdd'
+    console.log(reg2.exec(str2))
+    console.log(reg2.exec(str2))
+    console.log(reg2.exec(str2))
+    // console.log(str2.match(reg2))
 </script>
