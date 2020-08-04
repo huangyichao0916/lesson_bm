@@ -17,3 +17,8 @@
   - yarn add html-webpack-plugin
   - yarn add react react-dom @types/react @types/react-dom  （后面两个是typescript的类型约束文件）
   - yarn add typescript
+
+ ## tsx工作流
+  .tsx React组件  ->  webpack.config.js -> awesome-typescript-loader  -> tsconfig.json -> typescript.jsx
+   -> babel (polyfill + env + plugin) -> reactDOM -> webpack-dev-server  html-webpack-plugin  footer 
+    script bundle.js
