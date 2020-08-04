@@ -1,13 +1,23 @@
 <script>
     let hd = `
-    123-asd$
-    $123-ahycd
-    asddasj
-    `;
-    // let reg = /1/;
-    // let reg2 = /^\d+$/
-    // console.log(hd.exec(reg));
-    let reg2 = /.+/smg;
-    console.log(hd.match(reg2));
-    // console.log(str2.match(reg2))
+        https://www.baidu.com
+        asdj
+    `
+    let reg = /https?\:\/\/w+\.(\w+)\.(?:com|cn|org)/;
+
+    console.log(reg.exec(hd))
 </script>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>sldjasdjsd</h1>
+    <span>hausdisadj</span>
+    <h2>dpojbweflja</h2>
+</body>
+</html> -->
