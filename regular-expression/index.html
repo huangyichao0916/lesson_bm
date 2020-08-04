@@ -1,16 +1,13 @@
 <script>
-    let hd = `1
+    let hd = `
     123-asd$
-    $123-a黄毅超d
+    $123-ahycd
     asddasj
     `;
-    let reg = /1/;
+    // let reg = /1/;
     // let reg2 = /^\d+$/
     // console.log(hd.exec(reg));
-    let reg2 = /d/y;
-    let str2 = 'ddddhhhdd'
-    console.log(reg2.exec(str2))
-    console.log(reg2.exec(str2))
-    console.log(reg2.exec(str2))
+    let reg2 = /.+/smg;
+    console.log(hd.match(reg2));
     // console.log(str2.match(reg2))
 </script>
