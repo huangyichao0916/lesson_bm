@@ -1,0 +1,12 @@
+<script>
+    function trim(str) {
+        return str.replace(/^\s+/, '').replace(/\s+$/, '')
+    }
+    function trim2(str) {
+        return str.match(/\S+(\s+?\S+)*/)[0]
+    }
+    // console.log(trim2('   asdjalskdj s   '));
+
+    let str = '     asasdasdlj';
+    console.log(str.match(/(\s+)?\w+/));
+</script>
