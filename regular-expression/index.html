@@ -1,17 +1,11 @@
 <script>
-    // let hd = `
-    //     https://www.baidu.com
-    //     http://www.google.com
-    //     https://www.lvmeng.cn
-    // `
-    // const reg = /https?\:\/\/w{3}\.\w+\.(com|cn)/;
-    // console.log(hd.match(reg));
-
-    let number = `dj(010)99999999  (020)88888888`
-    let number2 = `dj(010)99999999`
-    let reg = /\((\d{3})\)(\d+)/g;
-    let n = number2.replace(reg,'$`');
-    console.log(n)
+    let str = `
+        <a href="https://www.baidu.com">百度</a>
+        <a href="http://www.google.com">谷歌</a>
+    `
+    let reg = /(?<=href\=['"]https?\:\/\/www\.)(.+)(?=\.com)/g;
+    let res = str.replace(reg,'hychyc')
+    console.log(res);
 </script>
 
 <!-- <!DOCTYPE html>
@@ -22,8 +16,7 @@
     <title>Document</title>
 </head>
 <body>
-    <span>afljklajf;afj</span>
-    <span>asf;bj;lajslkd</span>
-    <span>aslkjdaslkd.com</span>
+    <a href="https://baidu.com">百度</a>
+    <a href="http://google.com">谷歌</a>
 </body>
 </html> -->
