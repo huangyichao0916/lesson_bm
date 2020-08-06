@@ -1,14 +1,11 @@
-<script>
-    let str = `
-        <a href="https://www.baidu.com">百度</a>
-        <a href="http://www.google.com">谷歌</a>
-    `
-    let reg = /(?<=href\=['"]https?\:\/\/www\.)(.+)(?=\.com)/g;
-    let res = str.replace(reg,'hychyc')
-    console.log(res);
-</script>
+<!-- <script>
+    let str = 'asldj';
+    const reg = /^(?!.*黄毅超.*).*/;
+    let res = reg.
+    console.log(res)
+</script> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +13,14 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="https://baidu.com">百度</a>
-    <a href="http://google.com">谷歌</a>
+    <input type="text" id="hyc">
+
+    <script>
+        const reg = /^(?!.*黄毅超.*).*/;
+        const input = document.getElementById('hyc');
+        input.addEventListener('keyup',function(e){
+            console.log(e.target.value.match(reg));
+        })
+    </script>
 </body>
-</html> -->
+</html>
