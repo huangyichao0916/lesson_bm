@@ -1,0 +1,12 @@
+<script>
+    Array.prototype.myForeach = function(fnc) {
+        for (let i = 0; i < this.length; i++) {
+            fnc(this[i],i)
+        }
+    }
+    let a = [1,2,3]
+    a.myForeach((item,index) => {
+        console.log(item)
+        console.log(index)
+    })
+</script>
