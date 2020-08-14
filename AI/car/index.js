@@ -27,4 +27,4 @@ function getDirFiles(startPath){
     }
     return result;
 }
-console.log(getDirFiles('src'));
+console.log(getDirFiles('src')); 
