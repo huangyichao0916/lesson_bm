@@ -20,4 +20,5 @@
 # 2
 手写 Promise.Race()
 
-# 3
+# 3 限流
+对promise的个数进行限流，每次只能有2个promise在执行

@@ -7,7 +7,12 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+// import HelloWorld from './components/HelloWorld'
+export default {
+  
+}
+</script>
 <style lang="stylus">
 #app
   font-family Avenir, Helvetica, Arial, sans-serif
