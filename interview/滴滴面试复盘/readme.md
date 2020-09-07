@@ -13,3 +13,8 @@
  - Object.defineProperty()
  - ES6 Proxy
  
+ - mvvm 手写
+  1. 为什么Object.defineProperty()被废弃了
+  2. 订阅/发布者模式
+
+ - 
