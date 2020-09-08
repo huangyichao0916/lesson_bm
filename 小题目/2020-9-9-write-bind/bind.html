@@ -1,0 +1,11 @@
+<script>
+    Function.prototype.mybind = function(myThis,...args1){
+        let fn = this;
+        function resFnc(...args2){
+            let args = args1.concat(args2)
+            return fn.apply(myThis,args)
+        }
+        resFnc.prototype = Object.create(this.prototype)
+        return resFnc;
+    }
+</script>
