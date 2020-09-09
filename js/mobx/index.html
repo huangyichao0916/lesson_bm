@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="showValue"></div>
+
+    <script src="https://unpkg.com/mobx@5.15.6/lib/mobx.umd.js"></script>
+    <script>
+        let obj = {a:1,b:2}
+        let proxyObj = mobx.observable(obj)
+        mobx.autorun(() => {
+            document.getElementById('showValue').innerHTML = proxyObj.a
+        })
+        setInterval(() => {
+            // proxyObj.a++
+        }, 1000);
+    </script>
+</body>
+</html>
