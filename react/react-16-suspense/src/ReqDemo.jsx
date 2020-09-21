@@ -1,28 +1,36 @@
 import React from 'react';
 let p = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve('res');
-  }, 3000);
+    setTimeout(() => {
+        resolve('res');
+    }, 2000);
+})
+.then(r => {
+    status = 'success';
+    res = r;
 })
 let status = 'pending';
 let res;
 function req() {
-  p.then((r) => {
-    status = 'success';
-    res = r;
-  })
-  if (status === 'pending') {
-    throw p;      // catch
-  } else if (status === 'success') {
-    return res;
-  }
+    console.log(1)
+    // p.then((r) => {
+    //     status = 'success';
+    //     res = r;
+    // })
+    if (status === 'pending') {
+        console.log(2)
+        throw p;      // catch
+    } else if (status === 'success') {
+        console.log(3)
+        return res;
+    }
 }
 export default function Demo() {
-  const res = req();
-  console.log('继续')
-  return (
-    <h2>
-      { res }
-    </h2>
-  )
+    console.log('进入组件function')
+    const res = req();
+    console.log('继续')
+    return (
+        <h2>
+            { res}
+        </h2>
+    )
 }
