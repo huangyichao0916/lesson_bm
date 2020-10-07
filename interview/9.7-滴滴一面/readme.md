@@ -1,7 +1,7 @@
 # 滴滴一面
  1. 设计模式
-  - 订阅发布者模式  MVVM  template  compile
-  - 代理模式  proxy  defineProperty
+  - 订阅发布者模式  MVVM  template  compile    **1-1**   https://juejin.im/post/6844903987024510989#heading-0
+  - 代理模式  proxy  defineProperty           **OK**
 
  2. JS 基础能力题
   - es6
@@ -11,16 +11,34 @@
    - async  await
    - proxy
    - Object.defineProperty
-   - map  reduce
+   - map  reduce                            **OK**
 
   - ajax
    - xhr state  readyState 1 2 3 4
+    0	UNSENT	代理被创建，但尚未调用 open() 方法。
+    1	OPENED	open() 方法已经被调用。
+    2	HEADERS_RECEIVED	send() 方法已经被调用，并且头部和状态已经可获得。
+    3	LOADING	下载中； responseText 属性已经包含部分数据。
+    4	DONE	下载操作已完成。
    - jsonp
-   - axios
+   - axios                                  **OK**
 
   - 手写代码
    - 抄写
-   - 实现防抖函数（debounce）
+   - 实现防抖函数（debounce）                 
+     ```js
+     function debounce(func, wait) {
+            let timeout = null;
+
+            return function () {
+                clearTimeout(timeout)
+
+                timeout = setTimeout(() => {
+                    func.apply(this, arguments)
+                }, wait);
+            }
+        }
+     ```
    - 实现节流函数（throttle）
    - 实现Event(event emitter)
    - 实现instanceOf
