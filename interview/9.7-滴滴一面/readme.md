@@ -25,28 +25,15 @@
 
   - 手写代码
    - 抄写
-   - 实现防抖函数（debounce）                 
-     ```js
-     function debounce(func, wait) {
-            let timeout = null;
-
-            return function () {
-                clearTimeout(timeout)
-
-                timeout = setTimeout(() => {
-                    func.apply(this, arguments)
-                }, wait);
-            }
-        }
-     ```
-   - 实现节流函数（throttle）
-   - 实现Event(event emitter)
-   - 实现instanceOf
-   - 模拟new
-   - 实现一个call/apply
-   - 模拟Object.create
-   - 解析 URL Params 为对象
-   - 深拷贝浅拷贝
+   - 实现防抖函数（debounce）                 **2-1**
+   - 实现节流函数（throttle）                 **2-2**
+   - 实现Event(event emitter)               **OK**
+   - 实现instanceOf                         **2-3**
+   - 模拟new                                **OK**
+   - 实现一个call/apply                      **OK**
+   - 模拟Object.create                      **OK**
+   - 解析 URL Params 为对象               https://www.cnblogs.com/yalong/p/10534858.html
+   - 深拷贝浅拷贝                           
 
   - 源码分析题
    - React/Vue/Koa  源码实现

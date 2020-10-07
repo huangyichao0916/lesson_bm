@@ -12,7 +12,32 @@
         function handleMouseMove(e) {
             console.log(e.screenX)
         }
-        let fnc = debounce2(handleMouseMove, 1000)
+        //时间戳版
+        function throttle1(func, wait) {
+            var previous = 0;
+            return function () {
+                var now = Date.now();
+                if (now - previous > wait) {
+                    func.apply(this, arguments);
+                    previous = now;
+                }
+            };
+        }
+        function throttle2(func, wait) {
+            var canExcute = true;
+            return function () {
+                if (canExcute) {
+                    func.apply(this, arguments);
+                    canExcute = false;
+                    setTimeout(function () {
+                        canExcute = true;
+                    }, wait);
+                }
+            };
+        }
+
+
+        let fnc = throttle2(handleMouseMove, 1000)
         // document.documentElement.addEventListener('mousemove', handleMouseMove)
         document.documentElement.addEventListener('mousemove', fnc)
     </script>
