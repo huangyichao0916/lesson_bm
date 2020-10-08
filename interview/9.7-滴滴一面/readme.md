@@ -32,8 +32,8 @@
    - 模拟new                                **OK**
    - 实现一个call/apply                      **OK**
    - 模拟Object.create                      **OK**
-   - 解析 URL Params 为对象               https://www.cnblogs.com/yalong/p/10534858.html
-   - 深拷贝浅拷贝                           
+   - 解析 URL Params 为对象                  **2-4**
+   - 深拷贝浅拷贝                            
 
   - 源码分析题
    - React/Vue/Koa  源码实现
