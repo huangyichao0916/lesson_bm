@@ -34,6 +34,6 @@ const myP = pubSub();
 const unSubscriber = myP.subscribe('click',function(e){
     console.log(e)
 })
-myP.publish('click','权佳欣我喜欢你')
+myP.publish('click','权佳欣')
 unSubscriber();
-myP.publish('click','权佳欣我喜欢你')
+myP.publish('click','权佳欣')
