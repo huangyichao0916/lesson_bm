@@ -1,0 +1,17 @@
+div{
+    width: 100px;
+    height: 100px;
+    outline: 1px solid pink;
+}
+.one+.three{
+    background-color: yellowgreen;
+}
+
+.first+p{
+    margin: 0;
+    padding: 0;
+}
+[type=text]{
+    margin: 0;
+    padding: 0;
+}
