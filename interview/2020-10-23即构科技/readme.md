@@ -16,6 +16,8 @@
 
     console.log(Object instanceof Function)//true
     console.log(Function instanceof Object)//true
+
+    console.log(1 instanceof Object)//true
  ```
 
 2. 对象的key问题
