@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <title>Document</title>
   <style>
       .masonry{
-          /* column-width: 300px; */
+          /* column-width: 100px; */
           column-count: 4;
       }
       .item{
@@ -275,7 +275,7 @@
     }
   ]
   const wrap = document.querySelector('.masonry');
-  wrap.innerHTML = data.map((item) => {
+  wrap.innerHTML = data.slice(0,5).map((item) => {
     return `
   <figure class="item">
       <img src="${item.img}">

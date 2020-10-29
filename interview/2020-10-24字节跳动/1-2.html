@@ -6,19 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
-            width: 0;
-            height: 0;
-            border-width: 0 40px 40px;
-            border-style: solid;
-            border-color: red;
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer {
+            width: 1000px;
+            height: 400px;
+        }
+        .one,.two{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .two{
+            background-color: grey;
+            margin-left: -50px;
         }
     </style>
 </head>
 
 <body>
-    <div>
-
+    <div class="outer">
+        <div class="one"></div>
+        <div class="two"></div>
     </div>
 </body>
 
