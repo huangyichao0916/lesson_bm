@@ -4,10 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .img{
+      float:left;
+      outline: 1px solid pink;
+    }
+    .after{
+      clear: both;
+    }
+    .outer{
+      outline: 2px solid blue;
+    }
+  </style>
 </head>
 <body>
-  <div>
-    <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" style="float:left">
+  <div class="outer">
+    <div class="img">
+      <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
+    </div>
     <p>
       一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字
       一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字
@@ -15,6 +29,7 @@
       一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字
       一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字一段文字
     </p>
+    <div class="after">  2 </div>
   </div>
 </body>
 </html>

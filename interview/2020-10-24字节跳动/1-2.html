@@ -1,36 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
+    <title></title>
+    <style type="text/css">
+        .wrapper {
+            padding: 0 100px;
+            overflow: hidden;
         }
-        .outer {
-            width: 1000px;
-            height: 400px;
+
+        .col {
+            position: relative;
+            float: left;
         }
-        .one,.two{
+
+        .main {
+            width: 100%;
+            height: 200px;
+            background: yellow;
+        }
+
+        .left,
+        .right {
             width: 100px;
-            height: 100px;
-            background-color: green;
+            height: 200px;
+            background: red;
         }
-        .two{
-            background-color: grey;
-            margin-left: -50px;
+
+        .left {
+            margin-left: -100%;
+            left: -100px;
+        }
+
+        .right {
+            margin-left: -100px;
+            right: -100px;
         }
     </style>
 </head>
 
 <body>
-    <div class="outer">
-        <div class="one"></div>
-        <div class="two"></div>
-    </div>
+    <section class="wrapper">
+        <section class="col main">main</section>
+        <aside class="col left">left</aside>
+        <aside class="col right">right</aside>
+    </section>
 </body>
 
 </html>
