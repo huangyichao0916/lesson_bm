@@ -1,6 +1,56 @@
 .navItem{
-    margin-left: 10px;
-    outline: 1px solid black;
+    margin-left: 20px;
     width: calc(100% - 10px);
     text-decoration: none;
+    margin-top: 10px;
+    position: relative;
+}
+.navItem .border{
+    position: absolute;
+    top: 11px;
+    left: -8px;
+    background-color: black;
+    width: 1px;
+    height: calc(100% - 11px);
+    display: none;
+}
+.navItem .border.bor-sho{
+    display: block;
+}
+.navItem .rowLine{
+    height: 1px;
+    width: 20px;
+    background-color: black;
+    position: absolute;
+    top: 11px;
+    left: -27px;
+}
+.navItem .content{
+    background-color: lightcoral;
+    position: relative;
+}
+.navItem .content .tri{
+    transition-duration: 500ms;
+    z-index: 1000;
+    position: absolute;
+    left: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0px;
+    height: 0px;
+    border-width: 6px 0 6px 12px;
+    border-color: transparent transparent transparent black;
+    border-style: solid;
+}
+.navItem .content .tri.rotate{
+    transition-duration: 500ms;
+    transform: rotateZ(90deg) translateX(-50%);
+}
+.navItem a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: black
+}
+.navItem .chi.show{
+    display: none;
 }

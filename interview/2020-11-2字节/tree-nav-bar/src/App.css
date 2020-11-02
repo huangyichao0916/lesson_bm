@@ -11,4 +11,5 @@ body{
   outline: 1px solid pink;
   height: 100%;
   width: 33vw;
+  overflow: hidden;
 }

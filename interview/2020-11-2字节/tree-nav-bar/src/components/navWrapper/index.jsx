@@ -4,23 +4,39 @@ import NavItem from '../navItem';
 // import NavItem2 from '../navItem2';
 
 const NavWrapper = props => {
-    const {obj} = props;
+    const { obj } = props;
     // console.log(obj)
     let i = 0;
-    function createTreeNav(node) {
-        const {linkTo, title, items} = node;
-        i ++;
+    let level = 0;
+    function li() {
+        level++;
+    }
+    function lr() {
+        level--;
+    }
+    function createTreeNav(node, iIndex) {
+        const { linkTo, title, items } = node;
+        i++;
+        if (!items) {
+            return (
+                <NavItem linkTo={linkTo} title={title} key={i} level={level} index={iIndex}>
+
+                </NavItem>
+            )
+        }
         return (
-            <NavItem linkTo={linkTo} title={title} key={i}>
+            <NavItem linkTo={linkTo} title={title} key={i} level={level} index={iIndex} isTriShow>
+                {li()}
                 {
-                    items && items.map(item => createTreeNav(item))
+                    items.map((item, index) => createTreeNav(item, index + 1))
                 }
+                {lr()}
             </NavItem>
         )
     }
     return (
         <div className="navWrapper">
-            {createTreeNav(obj)}
+            {createTreeNav(obj, 1)}
         </div>
     )
 }
