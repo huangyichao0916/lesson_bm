@@ -1,0 +1,6 @@
+.navItem{
+    margin-left: 10px;
+    outline: 1px solid black;
+    width: calc(100% - 10px);
+    text-decoration: none;
+}
