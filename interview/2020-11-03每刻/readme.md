@@ -8,3 +8,12 @@
  - 
 3. 怎么知道目前是什么浏览器
  - window.navigator.userAgent
+4. js的Number格式是有误差的，怎么解决
+ ```js
+    console.log(Number.EPSILON)   //2.220446049250313e-16
+ ```
+5. js怎么四舍五入
+ ```js
+    Math.toFixed(n)  //保留n位小数
+    Math.round()     //取整
+ ```
