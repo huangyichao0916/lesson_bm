@@ -8,22 +8,21 @@ const fs = require('fs');
 // MIME
 // text/html  
 // http:127.0.0.1:8081 => 把 ajax.html 内容返回给前端
-const server = http.createServer(
-  function (req, res) {
-    console.log('当前正在请求', req.url)
-    if (req.url.includes('search')) {
-      // search 搜索功能
-      // /      首页功能
-      res.end(req.url.split('?')[1])
-      return;
-    }
-    res.writeHead(200, {
-      'Content-Type': 'text/html;charset=utf-8'
-    })
-    const file = fs.readFileSync('./index.html', { encoding: 'utf8' })
-    // console.log(file);
-    res.end(file);
+const server = http.createServer(function (req, res) {
+  console.log('当前正在请求', req.url)
+  if (req.url.includes('search')) {
+    // search 搜索功能
+    // /      首页功能
+    res.end(req.url.split('?')[1])
+    return;
+  }
+  res.writeHead(200, {
+    'Content-Type': 'text/html;charset=utf-8'
   })
+  const file = fs.readFileSync('./index.html', { encoding: 'utf8' })
+  // console.log(file);
+  res.end(file);
+})
 server.listen(8081, function () {
   console.log('server is running http:127.0.0.1:8081')
 })

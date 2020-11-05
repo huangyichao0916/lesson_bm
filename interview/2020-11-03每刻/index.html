@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .blue,.red-outer{
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin-bottom: 100px;
+            overflow: hidden;
+        }
+        .blue{
+            background-color: red;
+            overflow: hidden;
+            margin-bottom: 100px;
+        }
+    </style>
 </head>
+
 <body>
-    <button id="push">push</button>
-    <button id="replace">replace</button>
-    <script>
-        console.log(window.history)
-        const p = document.querySelector('#push')
-        const r = document.querySelector('#replace')
-        // p.addEventListener('click',e => {
-        //     window.history.pushState('h','one','www.baidu.com')
-        //     console.log(window.history.length)
-        //     setTimeout(
-        //     () => {
-        //         window.history.go(-1)
-        //     },
-        //     2000
-        // )
-        // })
-        // r.addEventListener('click',e => {
-        //     window.history.replaceState('y','two','www.hyc.com')
-        //     console.log(window.history.length)
-        // })
-    </script>
+    <div class="blue"></div>
+    <div class="red-outer">
+    </div>
 </body>
+
 </html>
