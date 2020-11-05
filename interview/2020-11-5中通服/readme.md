@@ -1,0 +1,14 @@
+1. 浏览器tab之间的通信
+2. window.open怎么传递信息
+3. generator以及用法
+4. 伪类和伪元素的区别
+5. 怎么跨域
+ - JSONP
+ - CORS
+ - postMessage
+ - Nginx反向代理
+6. 项目难点
+7. cookie,sessionStorage,localStorage，他们的容量分别有多大
+ - 每个cookie最大是4Kb
+ - sessionStorage和localStorage一般为5Mb
+8. 防抖和节流是什么，举个例子
