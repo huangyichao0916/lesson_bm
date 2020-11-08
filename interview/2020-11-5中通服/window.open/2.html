@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2号窗口</title>
+</head>
+<body>
+    窗口2号
+    <button id="btn">打开窗口</button>
+    <script>
+        window.addEventListener('message',e => {
+            console.log(e.data)
+        })
+        const opener = window.opener;
+        btn.addEventListener('click',e => {
+            // opener.sele('asd')
+            opener.postMessage('i am the one')
+            window.a = '2.html'
+        })
+    </script>
+</body>
+</html>

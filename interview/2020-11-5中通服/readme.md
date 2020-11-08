@@ -2,6 +2,7 @@
  - postMessage
  - 监听localStorage(必须要在两个tab同源的情况下才能监听localStorage)
 2. window.open怎么传递信息
+ - 
 3. generator以及用法
 4. 伪类和伪元素的区别
  - 伪类的核心就是用来选择那些不能够被普通选择器选择的文档之外的元素，如:hover

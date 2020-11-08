@@ -9,7 +9,7 @@
 <body>
     这里是页面1
     <button id="btn">click</button>
-    <iframe src="http://127.0.0.1:64331" id="hycs" height="300" width="500" name="demo" scrolling="auto"></iframe>
+    <iframe src="http://127.0.0.1:64263" id="myIframe" height="300" width="500" name="demo" scrolling="auto"></iframe>
     <!-- <div id="hyc">asd</div> -->
 
     <script>
@@ -17,11 +17,11 @@
         window.addEventListener('message',e => {
             console.log(e.data)
         })
-        const hyc = document.querySelector('#hycs')
+        const myIframe = document.querySelector('#myIframe')
         const btn = document.querySelector('#btn')
-        console.log(hyc.contentWindow)
-        btn.addEventListener('click',(e) => {
-            hyc.contentWindow.postMessage(`hello i am the ${window.a}`,'http://127.0.0.1:64331');
+        console.log(myIframe.contentWindow.b)
+        btn.addEventListener('click',e => {
+            myIframe.contentWindow.postMessage(`hello i am the ${window.a}`,'http://127.0.0.1:64263');
             // console.log(window.a);
         })
     </script>

@@ -9,9 +9,10 @@
     这里是页面2
     <button id="hh">click</button>
     <script>
+        window.b = 100;
         const btn = document.querySelector('#hh')
         btn.addEventListener('click',e => {
-            window.top.postMessage('i am two','http://127.0.0.1:56826')
+            window.top.postMessage(`i am 3`,'http://127.0.0.1:64254')
         })
         window.addEventListener('message', e => {
             // console.log(e.origin);

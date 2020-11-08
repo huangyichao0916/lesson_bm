@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1号窗口</title>
+</head>
+<body>
+    窗口一号
+    <button id="btn">打开窗口</button>
+    <script>
+        window.addEventListener('message',e => {
+            console.log(e.data)
+        })
+        const btn = document.querySelector('#btn')
+        let newWin = null;
+        btn.addEventListener('click',e => {
+            newWin = window.open('./2.html','_blank','')
+            // newWin.postMessage('i am the window 1')
+            console.log(newWin.a)
+        })
+    </script>
+</body>
+</html>
