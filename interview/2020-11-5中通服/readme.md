@@ -1,4 +1,6 @@
 1. 浏览器tab之间的通信
+ - postMessage
+ - 监听localStorage(必须要在两个tab同源的情况下才能监听localStorage)
 2. window.open怎么传递信息
 3. generator以及用法
 4. 伪类和伪元素的区别

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    这里是页面1
+    <button id="btn">click</button>
+    <iframe src="http://127.0.0.1:64331" id="hycs" height="300" width="500" name="demo" scrolling="auto"></iframe>
+    <!-- <div id="hyc">asd</div> -->
+
+    <script>
+        window.a = 100;
+        window.addEventListener('message',e => {
+            console.log(e.data)
+        })
+        const hyc = document.querySelector('#hycs')
+        const btn = document.querySelector('#btn')
+        console.log(hyc.contentWindow)
+        btn.addEventListener('click',(e) => {
+            hyc.contentWindow.postMessage(`hello i am the ${window.a}`,'http://127.0.0.1:64331');
+            // console.log(window.a);
+        })
+    </script>
+</body>
+
+</html>

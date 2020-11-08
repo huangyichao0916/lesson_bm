@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    这里是页面2
+    <button id="hh">click</button>
+    <script>
+        const btn = document.querySelector('#hh')
+        btn.addEventListener('click',e => {
+            window.top.postMessage('i am two','http://127.0.0.1:56826')
+        })
+        window.addEventListener('message', e => {
+            // console.log(e.origin);
+            console.log(e.data)
+        })
+    </script>
+</body>
+</html>
