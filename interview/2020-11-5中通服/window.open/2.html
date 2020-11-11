@@ -14,6 +14,7 @@
         })
         const opener = window.opener;
         btn.addEventListener('click',e => {
+            console.log(opener.val)
             // opener.sele('asd')
             opener.postMessage('i am the one')
             window.a = '2.html'

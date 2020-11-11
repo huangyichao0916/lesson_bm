@@ -12,6 +12,7 @@
         window.addEventListener('message',e => {
             console.log(e.data)
         })
+        window.val = 'this is the val from 1.html'
         const btn = document.querySelector('#btn')
         let newWin = null;
         btn.addEventListener('click',e => {
