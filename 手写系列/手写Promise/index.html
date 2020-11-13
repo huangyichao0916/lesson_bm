@@ -1,0 +1,25 @@
+<script src="./promise.js"></script>
+
+<script>
+    new MyPromise((resolve,reject) => {
+        resolve(3)
+    })
+    .then()
+    .then(val => {
+        console.log(val)
+        return val * 3
+    },
+    err => {
+        console.log(err)
+        return err
+    })
+    .then(val => console.log(val),err => console.log(err))
+    // Promise.resolve(4).then(console.log)
+    // console.log(Promise)
+
+    // new Promise((resolve,reject) => {
+    //     resolve(1)
+    // })
+    // .then()
+    // .then(console.log)
+</script>
