@@ -1,8 +1,8 @@
-class MyPromise{
+class MyPromise {
     static PENDING = 'pending';
     static FULFILLED = 'fulfilled';
     static REJECTED = 'rejected';
-    constructor(executor){
+    constructor(executor) {
         this.status = MyPromise.PENDING;
         this.value = null;
         this.callbacks = [];
@@ -40,39 +40,45 @@ class MyPromise{
         }
         if (typeof onRejected !== 'function') {
             onRejected = () => this.value;
-        } 
+        }
 
-        return new MyPromise((resolve,reject) => {
+        return new MyPromise((resolve, reject) => {
             if (this.status === MyPromise.PENDING) {
                 this.callbacks.push({
                     onFulfilled: value => {
                         try {
-                            const res = onFulfilled(value)
-                            resolve(res)
+                            const res = onFulfilled(this.value)
+                            if (res instanceof MyPromise) {
+                                res.then(resolve, reject)
+                            } else {
+                                resolve(res)
+                            }
                         } catch (error) {
-                            const res = onRejected(error)
-                            reject(res)
+                            reject(error)
                         }
                     },
                     onRejected: err => {
                         try {
-                            const res = onRejected(err)
-                            resolve(res)
+                            const res = onRejected(this.value)
+                            if (res instanceof MyPromise) {
+                                res.then(resolve, reject)
+                            } else {
+                                resolve(res)
+                            }
                         } catch (err) {
-                            const res = onRejected(err)
                             reject(err)
                         }
                     }
                 })
             }
-    
+
             if (this.status === MyPromise.FULFILLED) {
                 setTimeout(() => {
                     try {
                         const res = onFulfilled(this.value)
                         if (res instanceof MyPromise) {
-                            res.then(r => resolve(r),err => reject(err))
-                        }else{
+                            res.then(resolve, reject)
+                        } else {
                             resolve(res)
                         }
                     } catch (error) {
@@ -83,11 +89,12 @@ class MyPromise{
             if (this.status === MyPromise.REJECTED) {
                 setTimeout(() => {
                     try {
-                        const res = onRejected(this.value)
+                        const res = onFulfilled(this.value)
                         if (res instanceof MyPromise) {
-                            
+                            res.then(resolve, reject)
+                        } else {
+                            resolve(res)
                         }
-                        resolve(res)
                     } catch (error) {
                         reject(error)
                     }
