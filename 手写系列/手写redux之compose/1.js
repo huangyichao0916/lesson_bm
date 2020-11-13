@@ -23,13 +23,13 @@ const midwares = [
 ]
 
 //用reduce实现
-const compose = function (...funcs) {
+const compose = function (funcs) {
     return funcs.reduce((pre,cur) => {
         return (...args) => pre(cur(...args))
     })
 }
 
-// const fncOne = compose(...midwares)(() => console.log('inner'))
+// const fncOne = compose(midwares)(() => console.log('inner'))
 // fncOne()
 
 //用for循环实现
