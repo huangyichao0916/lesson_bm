@@ -14,7 +14,6 @@ Array.prototype.myReduce = function (func) {
     }
     return pre;
 }
-
 // const midwares = [
 //     function(fnc){
 //         console.log(1)
