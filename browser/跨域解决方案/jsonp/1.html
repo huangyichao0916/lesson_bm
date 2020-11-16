@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hyc</title>
+</head>
+
+<body>
+    <div>
+        123
+    </div>
+    <button id="hyc">click</button>
+
+    <script>
+        function foo(res) {
+            console.log(res)
+        }
+    </script>
+    <!-- <script src="/api?a=1&b=2&callback=foo"></script> -->
+    <script>
+        const btn = document.querySelector('#hyc')
+
+        function jsonp({ url, data, timeout }) {
+            return new Promise(resolve => {
+                const methodName = `jsonpCallback${Date.now()}`;
+                window[methodName] = function (res) {
+                    resolve(res)
+                    delete window[methodName];
+                }
+                const scriptNode = document.createElement('script')
+                scriptNode.src = url + '?callback=' + methodName;
+                document.body.appendChild(scriptNode)
+            })
+        }
+
+        btn.addEventListener('click',e => {
+            jsonp({
+                url: '/api',
+            }).then(res => {
+                console.log(res)
+            })
+        })
+    </script>
+</body>
+
+</html>
