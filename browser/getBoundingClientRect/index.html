@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hyc</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #hyc{
+            background-color: gray;
+            width: 200px;
+            height: 200px;
+            padding: 50px;
+            border: 20px solid pink;
+            margin: 100px;
+            /* margin-left: 300px; */
+            /* box-sizing: border-box; */
+        }
+    </style>
+</head>
+<body>
+    <div id="hyc">
+
+    </div>
+
+    <script>
+        const div = document.querySelector('#hyc')
+        let bcr = div.getBoundingClientRect();
+        // console.log(bcr.width)
+        // console.log(bcr.y)
+        // console.log(bcr.top)
+        // console.log(bcr.right - bcr.left)
+    </script>
+</body>
+</html>

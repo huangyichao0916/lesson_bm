@@ -1,9 +1,10 @@
-function serialize(tree) {
-    let arr = [];
-    arr.push(tree.name);
-    if (tree.children == null) return arr;
-    for (let item of tree.children) {
-        arr = arr.concat(serialize(item));
-    }
-    return arr;
-}
+new Promise((resolve, reject) => {
+    reject(1)
+})
+    .catch(() => {
+        console.log(2)
+    })
+    .then(
+        () => console.log(3),
+        (v) => console.log(v)
+    )
