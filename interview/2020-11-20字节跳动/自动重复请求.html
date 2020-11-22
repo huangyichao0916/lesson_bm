@@ -1,0 +1,33 @@
+<script>
+    function reGet(url, time) {
+        let myTimes = 0;
+        function helper() {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest()
+                xhr.open('get', url)
+                xhr.onreadystatechange = function () {
+                    if (xhr.status === 200 && xhr.readyState === 4) {
+                        resolve(xhr.response)
+                    }
+                }
+                xhr.onerror = reject
+                xhr.send()
+            })
+        }
+        function emitPromise(resolve, reject) {
+            myTimes++;
+            if (myTime > time) {
+                reject()
+                return;
+            }
+            helper()
+            .then(res => resolve(res))
+            .catch(err => {
+                emitPromise(resolve,reject)
+            })
+        }
+        return new Promise((resolve,reject) => {
+            emitPromise(resolve,reject)
+        })
+    }
+</script>

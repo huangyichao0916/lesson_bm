@@ -1,0 +1,58 @@
+<script>
+    const cdn1 = 'https://huyaimg.msstatic.com/cdnimage/gamebanner/php6ekNKG1545291706.png'
+    const cdn2 = 'https://huyaimg.msstatic.com/cdnimage/gamebanner/phpXPAF5Y1605924839.jpg'
+    const cdn3 = 'https://huyaimg.msstatic.com/cdnimage/gamebanner/phpYZHNw71599818230.jpg'
+    const cdn4 = 'https://huyaimg.msstatic.com/cdnimage/gamebanner/phpTbYQw41603355461.jpg'
+
+    const p = Promise.all([
+        new Promise(resolve => {
+            const img = new Image()
+            const now = Date.now()
+            img.src = cdn1;
+            img.onload = function() {
+                const newNow = Date.now()
+                resolve({
+                    seq: 1,
+                    time: (newNow - now)/1000
+                })
+            }
+        }),
+        new Promise(resolve => {
+            const img = new Image()
+            const now = Date.now()
+            img.src = cdn2;
+            img.onload = function() {
+                const newNow = Date.now()
+                resolve({
+                    seq: 2,
+                    time: (newNow - now)/1000
+                })
+            }
+        }),
+        new Promise(resolve => {
+            const img = new Image()
+            const now = Date.now()
+            img.src = cdn3;
+            img.onload = function() {
+                const newNow = Date.now()
+                resolve({
+                    seq: 3,
+                    time: (newNow - now)/1000
+                })
+            }
+        }),
+        new Promise(resolve => {
+            const img = new Image()
+            const now = Date.now()
+            img.src = cdn4;
+            img.onload = function() {
+                const newNow = Date.now()
+                resolve({
+                    seq: 4,
+                    time: (newNow - now)/1000
+                })
+            }
+        }),
+    ])
+    p.then(console.log)
+</script>
